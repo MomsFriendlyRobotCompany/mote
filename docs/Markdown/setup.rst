@@ -48,11 +48,27 @@ Now insert the SD card into the Zero and boot linux. From a latop, type::
 
   ssh pi@raspberrypi.local
 
+Once you are on the raspberry pi, do::
+
+  pi@raspberrypi:~ $ uname -a
+  Linux raspberrypi 4.4.50+ #970 Mon Feb 20 19:12:50 GMT 2017 armv6l GNU/Linux
+
 Then do::
 
   sudo apt update
   sudo apt upgrade
+  sudo apt install rpi-update
 
+Now to upgrade the kernel::
+
+  sudo rpi-update
+
+Once it is all done, you will need to reboot. Once you can log back in, do::
+
+  pi@raspberrypi:~ $ uname -a
+  Linux raspberrypi 4.9.21+ #986 Tue Apr 11 17:01:24 BST 2017 armv6l GNU/Linux
+
+Comparing from before, you can see the kernel has been upgraded.
 
 References
 ==============
