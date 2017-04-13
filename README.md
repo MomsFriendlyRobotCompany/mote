@@ -1,2 +1,0 @@
-# mote
-simple IoT robot
