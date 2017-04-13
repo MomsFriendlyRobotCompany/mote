@@ -5,6 +5,7 @@
 The package manager of choice is ``pip`` for python 2.7 and ``pip3`` for python 3.x. 
 Get ``pip`` for both versions with:
 
+    cd  # change to home directory
     sudo chown -R pi:pi /usr/local  # make usr:group pi own /usr/local
     mkdir tmp
     cd tmp
