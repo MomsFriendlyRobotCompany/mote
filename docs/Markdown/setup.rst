@@ -75,3 +75,4 @@ References
 
 - `Adafruit ethernet gadget setup <https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget/ethernet-gadget>`_
 - http://developer.toradex.com/knowledge-base/how-to-install-microsoft-rndis-driver-for-windows-7
+- http://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/
