@@ -1,0 +1,6 @@
+pygecko
+opencvutils
+build_utils
+flask
+numpy
+nose
