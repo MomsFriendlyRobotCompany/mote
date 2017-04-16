@@ -1,8 +1,12 @@
-# mote
-
 ![](docs/Markdown/pics/mote.jpg)
 
-simple IoT robot
+# mote
+
+[![Build Status](https://travis-ci.org/walchko/mote.svg?branch=master)](https://travis-ci.org/walchko/mote)
+
+simple IoT robot. Currently travis-ci fails to build this for Python 3, but
+eventually I would like to make it compatable. It however, does work with
+Python 2.7 (not that it does much right this minute) :smile:
 
 ## Install
 
@@ -10,7 +14,7 @@ For development you can also do:
 
     git clone https://github.com/walchko/mote.git
     cd mote
-    pip install -U requirements.txt
+    pip install -U -r requirements.txt
 
 # Licenses
 
