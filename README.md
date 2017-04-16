@@ -1,31 +1,20 @@
-mote
-========
+# mote
+
+![](docs/Markdown/pics/mote.jpg)
 
 simple IoT robot
 
-Needed libraries::
+## Install
 
-    pip install -U pygecko opencvutils
-
-Install
----------
-
-For development you can also do::
+For development you can also do:
 
     git clone https://github.com/walchko/mote.git
     cd mote
+    pip install -U requirements.txt
 
-Changes
---------
+# Licenses
 
-=============  ========  ======
-Date           Version   Notes
-=============  ========  ======
-2017-04-01     0.1.0     init
-=============  ========  ======
-
-MIT License
------------------
+## Software: MIT License
 
 Copyright (c) 2017 Kevin J. Walchko
 
@@ -45,3 +34,12 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Documentation: Community Commons
+
+<p align="center">
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+		<img alt="Creative Commons License"  src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+	</a>
+	<br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
