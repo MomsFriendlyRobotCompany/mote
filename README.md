@@ -25,7 +25,11 @@ To that end, mote has:
 		- `nmap` - to map local network
 		- `arp-scan` - to map local network
 		- `htop` - to see process running
-		- `pyarchey` - to see if your mote is up and running
+		- `pyarchey/hostinfo` - to see if your mote is up and running
+	- Other software
+		- [maybe] `pygecko` - robotics libraries
+		- [maybe] `opencvutils` - opencv utilities
+		- [maybe] `mjpeg` - stream camera images
 
 ## Install
 
