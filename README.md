@@ -4,9 +4,27 @@
 
 [![Build Status](https://travis-ci.org/walchko/mote.svg?branch=master)](https://travis-ci.org/walchko/mote)
 
+**Still in development -- not functional yet**
+
 simple IoT robot. Currently travis-ci fails to build this for Python 3, but
 eventually I would like to make it compatable. It however, does work with
 Python 2.7 (not that it does much right this minute) :smile:
+
+Mote's primary use is for teaching students about embedded systems and robotics.
+To that end, mote has:
+
+	- Jupyter notebook installed and always running
+	- OpenCV 3.2.x installed
+	- Python 2.7 and 3.6 installed with developer libraries
+		- `pip` and `pip3` also installed
+	- Samba installed and setup
+	- WiFi, Bluetooth, and SSH enabled
+	- Interfaces setup: I2C, SPI, and I2C
+	- Basic admintools added:
+		- `nmap` - to map local network
+		- `arp-scan` - to map local network
+		- `htop` - to see process running
+		- `pyarchey` - to see if your mote is up and running
 
 ## Install
 
