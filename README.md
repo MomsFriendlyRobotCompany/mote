@@ -14,6 +14,7 @@ Mote's primary use is for teaching students about embedded systems and robotics.
 To that end, mote has:
 
 	- Jupyter notebook installed and always running
+	- Useful development tools like: gcc/g++, git, cmake, pkg-config, etc
 	- OpenCV 3.2.x installed
 	- Python 2.7 and 3.6 installed with developer libraries
 		- `pip` and `pip3` also installed
