@@ -6,3 +6,4 @@ numpy
 nose
 hostinfo
 pyarchey
+jupyter
