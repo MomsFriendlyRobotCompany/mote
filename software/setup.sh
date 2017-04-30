@@ -36,11 +36,16 @@ mkdir -p ~/github
 mkdir -p ~/bitbucket
 
 # samba setup
+mv /etc/samba/smb.conf /etc/samba/smb.bak
+cp smb.conf /etc/samba
+sudo smbpasswd -a pi
+sudo service smbd restart
+sudo service nmbd restart
 
 # commandline setup
 # change to pi
-cd ~/github && git clone http://github.com/walchko/dotfiles.git
-cd ~/github/dotfiles && ./linux-setup.sh
+su - pi -c "cd ~/github && git clone http://github.com/walchko/dotfiles.git"
+su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
 
 
 echo ""

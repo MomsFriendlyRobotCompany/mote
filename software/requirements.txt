@@ -1,6 +1,8 @@
-pygecko
 opencvutils
 build_utils
 flask
+requests
 numpy
 nose
+hostinfo
+pyarchey

@@ -4,8 +4,6 @@
 
 [![Build Status](https://travis-ci.org/walchko/mote.svg?branch=master)](https://travis-ci.org/walchko/mote)
 
-**Still in development -- not functional yet**
-
 simple IoT robot. Currently travis-ci fails to build this for Python 3, but
 eventually I would like to make it compatable. It however, does work with
 Python 2.7 (not that it does much right this minute) :smile:
@@ -36,8 +34,8 @@ To that end, mote has:
 For development you can also do:
 
     git clone https://github.com/walchko/mote.git
-    cd mote
-    pip install -U -r requirements.txt
+
+Follow the instructions in `software` for setting things up.
 
 # Licenses
 
