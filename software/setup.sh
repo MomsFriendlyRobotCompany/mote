@@ -7,6 +7,11 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+if [[ $# -eq 0 ]] ; then
+	echo "Please supply a hostname"
+	exit 1
+fi
+
 # constants -----------------------------------------
 # 0 - on
 # 1 - off
@@ -14,7 +19,7 @@ ON=0
 OFF=1
 
 # set these -----------------------------------------
-HOSTNAME=robin
+HOSTNAME=$1
 GPUMEMORY=16
 WIFI=US
 
@@ -28,7 +33,7 @@ raspi-config nonint do_memory_split $GPUMEMORY
 
 # setup ----------------------------------------------
 # create keys, quiet, empty pass phrase
-ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa
+# ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa
 
 # create temp and git folder
 mkdir -p ~/tmp
@@ -44,14 +49,13 @@ sudo service nmbd restart
 
 # commandline setup
 # change to pi
-su - pi -c "cd ~/github && git clone http://github.com/walchko/dotfiles.git"
-su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
-
+if [ ! -d "~/github/dotfiles" ]; then
+	su - pi -c "cd ~/github && git clone http://github.com/walchko/dotfiles.git"
+	su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
+fi
 
 echo ""
 echo "============================="
 echo "| Need to reboot now        |"
 echo "============================="
 echo ""
-
-reboot now
