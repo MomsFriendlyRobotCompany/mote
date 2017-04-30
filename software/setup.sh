@@ -4,12 +4,12 @@ set -e
 # check if we are root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
-  exit
+  exit 1
 fi
 
 if [[ $# -eq 0 ]] ; then
-	echo "Please supply a hostname"
-	exit 1
+  echo "Please supply a hostname"
+  exit 1
 fi
 
 # constants -----------------------------------------
@@ -33,26 +33,38 @@ raspi-config nonint do_memory_split $GPUMEMORY
 
 # setup ----------------------------------------------
 # create keys, quiet, empty pass phrase
-# ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa
+if [ ! -d "/home/pi/.ssh" ]; then
+  su - pi -c "ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa"
+else
+  echo "ssh already setup"
+fi
 
 # create temp and git folder
-mkdir -p ~/tmp
-mkdir -p ~/github
-mkdir -p ~/bitbucket
+su - pi -c "mkdir -p ~/tmp"
+su - pi -c "mkdir -p ~/github"
+su - pi -c "mkdir -p ~/bitbucket"
 
 # samba setup
-mv /etc/samba/smb.conf /etc/samba/smb.bak
-cp smb.conf /etc/samba
-sudo smbpasswd -a pi
-sudo service smbd restart
-sudo service nmbd restart
+if [ ! -f "/etc/samba/smb.bak" ]; then
+  mv /etc/samba/smb.conf /etc/samba/smb.bak
+  cp smb.conf /etc/samba
+  sudo smbpasswd -a pi
+  sudo service smbd restart
+  sudo service nmbd restart
+else
+  echo "samba already set up"
+fi
 
 # commandline setup
-# change to pi
-if [ ! -d "~/github/dotfiles" ]; then
-	su - pi -c "cd ~/github && git clone http://github.com/walchko/dotfiles.git"
-	su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
+if [ ! -d "/home/pi/github/dotfiles" ]; then
+  su - pi -c "cd ~/github && git clone http://github.com/walchko/dotfiles.git"
+  su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
+else
+  echo "git repo dotfiles already cloned"
 fi
+
+# just in case root changed a permission in ~
+chown -R pi:pi /home/pi
 
 echo ""
 echo "============================="
