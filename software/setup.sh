@@ -48,9 +48,9 @@ su - pi -c "mkdir -p ~/bitbucket"
 if [ ! -f "/etc/samba/smb.bak" ]; then
   mv /etc/samba/smb.conf /etc/samba/smb.bak
   cp smb.conf /etc/samba
-  sudo smbpasswd -a pi
-  sudo service smbd restart
-  sudo service nmbd restart
+  smbpasswd -a pi
+  service smbd restart
+  service nmbd restart
 else
   echo "samba already set up"
 fi
@@ -61,6 +61,18 @@ if [ ! -d "/home/pi/github/dotfiles" ]; then
   su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
 else
   echo "git repo dotfiles already cloned"
+fi
+
+if [ -f "/etc/profile.d/sshpwd.sh" ]; then
+  rm -f /etc/profile.d/sshpwd.sh
+else
+  echo "already removed sshpwd.sh"
+fi
+
+if [ ! -f "/etc/profile.d/motd.sh" ]; then
+  ln -s /home/pi/github/mote/software/motd /etc/profile.d/motd.sh
+else
+  echo "already setup motd.sh"
 fi
 
 # just in case root changed a permission in ~
