@@ -41,7 +41,7 @@ apt-get -y install jp2a figlet
 # curl -s https://packagecloud.io/install/repositories/walchko/robots/script.deb.sh | sudo bash
 # apt-get update
 # apt-get -y install python3k
-dpkg -i python3k libopencv3 zeromq-kevin
+# dpkg -i python3k libopencv3 zeromq-kevin
 
 # install node.js
 curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
@@ -50,7 +50,7 @@ npm install -g httpserver
 
 # python 2/3
 # run as pi?: sudo su - pi -c "commands"
-cd tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
+cd ~/tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 su - pi -c "pip install -U pip wheel setuptools"
 pip install -U -r requirements.txt
 

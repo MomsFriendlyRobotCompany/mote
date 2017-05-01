@@ -13,7 +13,8 @@ su - pi -c "pip install -U hostinfo"
 
 # create link
 if [ ! -f "/etc/systemd/system/hostinfo.service" ]; then
-  ln -s `pwd`/hostinfo.service /etc/systemd/system/hostinfo.service
+  #ln -s `pwd`/hostinfo.service /etc/systemd/system/hostinfo.service
+  cp hostinfo.service /etc/systemd/system/
 else
   echo "hostinfo already set up"
 fi
