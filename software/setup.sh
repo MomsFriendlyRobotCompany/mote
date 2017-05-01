@@ -63,17 +63,17 @@ else
   echo "git repo dotfiles already cloned"
 fi
 
-if [ -f "/etc/profile.d/sshpwd.sh" ]; then
-  rm -f /etc/profile.d/sshpwd.sh
-else
-  echo "already removed sshpwd.sh"
-fi
-
-if [ ! -f "/etc/profile.d/motd.sh" ]; then
-  ln -s /home/pi/github/mote/software/motd /etc/profile.d/motd.sh
-else
-  echo "already setup motd.sh"
-fi
+# if [ -f "/etc/profile.d/sshpwd.sh" ]; then
+#   rm -f /etc/profile.d/sshpwd.sh
+# else
+#   echo "already removed sshpwd.sh"
+# fi
+# 
+# if [ ! -f "/etc/profile.d/motd.sh" ]; then
+#   ln -s /home/pi/github/mote/software/motd /etc/profile.d/motd.sh
+# else
+#   echo "already setup motd.sh"
+# fi
 
 # just in case root changed a permission in ~
 chown -R pi:pi /home/pi
