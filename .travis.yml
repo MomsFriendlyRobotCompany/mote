@@ -13,7 +13,7 @@ python:
 #             - sox
 install:
     - pip install -U pip setuptools wheel
-    - pip install -U -r requirements.txt
+    - pip install -U -r software/requirements.txt
 # command to run tests
 # script: cd tests && nosetests -v *.py
 # script: nosetests -v -w test/
