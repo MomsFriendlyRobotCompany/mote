@@ -12,3 +12,11 @@ Here is an archive of software should you need to rebuild the microSD image
     sudo dpkg -i python3.deb
     ./install.sh
     ./setup.sh
+
+## Git
+
+To setup `git`:
+
+    git config --global push.default simple
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
