@@ -8,6 +8,9 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+# make sure hostinfo is up to date
+su - pi -c "pip install -U hostinfo"
+
 # create link
 if [ ! -f "/etc/systemd/system/hostinfo.service" ]; then
   ln -s `pwd`/hostinfo.service /etc/systemd/system/hostinfo.service
