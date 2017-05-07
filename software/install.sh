@@ -25,10 +25,10 @@ echo "============================="
 echo ""
 
 # programming
-apt-get -y install cmake pkg-config build-essential git libpcap0.8-dev
+apt-get -y install cmake pkg-config build-essential git python-dev swig
 
 # admin
-apt-get -y install nmap htop samba samba-common-bin arp-scan wget curl
+apt-get -y install nmap htop samba samba-common-bin arp-scan wget curl libpcap0.8-dev
 
 # linux kernel
 apt-get -y install raspi-config rpi-update
@@ -73,9 +73,9 @@ fi
 
 # make a function for this?
 su - pi -c "pip install -U pip wheel setuptools"
-su - pi -c "pip install -U -r /home/pi/github/mote/software/requirements.txt"
+# su - pi -c "pip install -U -r /home/pi/github/mote/software/requirements.txt"
 su - pi -c "python3 -m pip install -U pip wheel setuptools"
-su - pi -c "python3 -m pip install -U -r /home/pi/github/mote/software/requirements.txt"
+# su - pi -c "python3 -m pip install -U -r /home/pi/github/mote/software/requirements.txt"
 # pip install -U pip wheel setuptools
 # pip install -U -r /home/pi/github/mote/software/requirements.txt
 # pip3 install -U pip wheel setuptools
