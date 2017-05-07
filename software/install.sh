@@ -69,13 +69,18 @@ fi
 
 # make a function for this?
 su - pi -c "pip install -U pip wheel setuptools"
-su - pi -c "pip install -U -r requirements.txt"
-su - pi -c "pip3 install -U pip wheel setuptools"
-su - pi -c "pip3 install -U -r requirements.txt"
+su - pi -c "pip install -U -r /home/pi/github/mote/software/requirements.txt"
+su - pi -c "python3 -m pip install -U pip wheel setuptools"
+su - pi -c "python3 -m pip install -U -r /home/pi/github/mote/software/requirements.txt"
+# pip install -U pip wheel setuptools
+# pip install -U -r /home/pi/github/mote/software/requirements.txt
+# pip3 install -U pip wheel setuptools
+# pip3 install -U -r /home/pi/github/mote/software/requirements.txt
 
 # update kernel
 rpi-update
 
+# fix permissions
 chown -R pi:pi /usr/local
 
 
