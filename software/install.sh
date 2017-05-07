@@ -35,6 +35,7 @@ apt-get -y install raspi-config rpi-update
 
 # numpy
 # need atlas | blas | f2py | fortran
+apt-get -y install libatlas-base-dev gfortran
 
 # bluetooth
 apt-get -y install bluez libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev
