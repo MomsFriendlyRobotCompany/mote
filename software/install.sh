@@ -33,6 +33,9 @@ apt-get -y install nmap htop samba samba-common-bin arp-scan wget curl
 # linux kernel
 apt-get -y install raspi-config rpi-update
 
+# numpy
+# need atlas | blas | f2py | fortran
+
 # bluetooth
 apt-get -y install bluez libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev
 
@@ -52,7 +55,7 @@ fi
 apt-get -y install python3k zeromq-kevin
 
 # install node.js
-#curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+#curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - 
 #apt-get install -y nodejs
 #npm install -g httpserver
 
