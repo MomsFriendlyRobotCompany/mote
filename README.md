@@ -29,6 +29,31 @@ To that end, mote has:
 	- [maybe] `opencvutils` - opencv utilities
 	- [maybe] `mjpeg` - stream camera images
 
+Command line:
+
+	kevin@Logan lib $ ssh pi@raven.local
+	Last login: Mon May  8 01:36:22 2017 from fe80::f41f:25ff::e764%usb0
+
+	 _ __ __ ___   _____ _ __  
+	| '__/ _` \ \ / / _ \ '_ \
+	| | | (_| |\ V /  __/ | | |
+	|_|  \__,_| \_/ \___|_| |_|
+
+
+	Wednesday, 10 May 2017,  2:17:19 am UTC
+	Linux 4.9.26+ armv6l GNU/Linux
+
+	Uptime.............: 0 days, 00h00m42s
+	Memory.............: 253 MB (Free) / 370 MB (Total)
+	Storage............: 1.9GB (Free) / 15GB (Total)
+	Load Averages......: 0.85, 0.24, 0.08 (1, 5, 15 min)
+	CPU Temperature....: 78 F
+	Running Processes..: 93
+	IP Addresses.......: 192.168.2.18
+
+
+
+
 ## Install
 
 For development you can also do:
@@ -37,6 +62,7 @@ For development you can also do:
     git clone https://github.com/walchko/mote.git
 
 Follow the instructions in `software` for setting things up.
+
 
 # Licenses
 
