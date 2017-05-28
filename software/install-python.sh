@@ -31,9 +31,10 @@ fi
 su - pi -c "pip install -U pip wheel setuptools"
 su - pi -c "pip install -U -r ${PWD}/requirements.txt"
 
-PY3=false
+PY3=`which python3`
 
-if [[ "${PY3}" ]]; then
+# check to see if string is empty, meaning python3 not installed
+if [[ ! -z "${PY3}" ]]; then
 	PY3_VER=`python3 --version`
 	echo ""
 	echo "============================="
