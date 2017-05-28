@@ -12,7 +12,7 @@ USR="pi"
 HOME="/home/${USR}"
 
 if [ ! -f "${HOME}/.ssh/id_rsa" ]; then
-	su ${USR} -c "cd ${HOME} && ssh-keygen -q -N "" -f ${HOME}/.ssh/id_rsa -t rsa"
+	su ${USR} -c "ssh-keygen -q -N \"\" -f ${HOME}/.ssh/id_rsa -t rsa"
 else
 	echo ""
 	echo "ssh already setup"
