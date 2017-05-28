@@ -12,7 +12,8 @@ fi
 PWD=`pwd`
 
 # python 2/3
-PY2_VER=`python --version`
+# note python outputs verison to STDERR, need to redirect to STDOUT
+PY2_VER=$(python --version 2>&1)
 echo ""
 echo "============================="
 echo "| Setting up ${PY2_VER}     |"
@@ -35,7 +36,7 @@ PY3=`which python3`
 
 # check to see if string is empty, meaning python3 not installed
 if [[ ! -z "${PY3}" ]]; then
-	PY3_VER=`python3 --version`
+	PY3_VER=$(python3 --version 2>&1)
 	echo ""
 	echo "============================="
 	echo "| Setting up ${PY3_VER}     |"

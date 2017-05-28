@@ -31,10 +31,18 @@
 # # The -e makes echo respect the \n properly
 # echo -e ${SERVICE} > ${ARCHEYJS_FILE}
 
-NODE=`which nodejs`
-LOCAL=false
-if [[ "${NODE}" =~ "/usr/local" ]]; then
-	LOCAL=true
-fi
+# NODE=`which nodejs`
+# LOCAL=false
+# if [[ "${NODE}" =~ "/usr/local" ]]; then
+# 	LOCAL=true
+# fi
+#
+# echo ${LOCAL}
 
-echo ${LOCAL}
+PY2_VER=$(python3 --version 2>&1)
+
+echo ""
+echo "============================="
+echo "| Setting up ${PY2_VER}"
+echo "============================="
+echo ""
