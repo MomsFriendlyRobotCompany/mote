@@ -33,7 +33,7 @@ su - pi -c "pip install -U -r ${PWD}/requirements.txt"
 
 PY3=false
 
-if [[ ${PY3} ]]; then
+if [[ "${PY3}" ]]; then
 	PY3_VER=`python3 --version`
 	echo ""
 	echo "============================="
