@@ -28,8 +28,8 @@ fi
 
 # update
 # make a function for this?
-su - pi -c "pip install -U pip wheel setuptools"
-su - pi -c "pip install -U -r ${PWD}/requirements.txt"
+su pi -c "pip install -U pip wheel setuptools"
+su pi -c "pip install -U -r ${PWD}/requirements.txt"
 
 PY3=`which python3`
 
@@ -41,6 +41,6 @@ if [[ ! -z "${PY3}" ]]; then
 	echo "| Setting up ${PY3_VER}     |"
 	echo "============================="
 	echo ""
-	su - pi -c "pip3 install -U pip wheel setuptools"
-	su - pi -c "pip3 install -U -r ${PWD}/requirements.txt"
+	su pi -c "pip3 install -U pip wheel setuptools"
+	su pi -c "pip3 install -U -r ${PWD}/requirements.txt"
 fi
