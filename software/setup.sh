@@ -33,49 +33,18 @@ raspi-config nonint do_memory_split $GPUMEMORY
 
 # setup ----------------------------------------------
 # create keys, quiet, empty pass phrase
-if [ ! -d "/home/pi/.ssh" ]; then
-  su - pi -c "ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa"
-else
-  echo "ssh already setup"
-fi
+./setup-ssh.sh
 
 # create temp and git folder
 su - pi -c "mkdir -p ~/tmp"
 su - pi -c "mkdir -p ~/github"
 su - pi -c "mkdir -p ~/bitbucket"
 
-# samba setup
-if [ ! -f "/etc/samba/smb.bak" ]; then
-  mv /etc/samba/smb.conf /etc/samba/smb.bak
-  cp smb.conf /etc/samba
-  smbpasswd -a pi
-  service smbd restart
-  service nmbd restart
-else
-  echo "samba already set up"
-fi
+# # samba setup
+./setup-smb.sh
 
 # commandline setup
-if [ ! -d "/home/pi/github/dotfiles" ]; then
-  su - pi -c "cd ~/github && git clone http://github.com/walchko/dotfiles.git"
-  su - pi -c "cd ~/github/dotfiles && ./linux-setup.sh"
-else
-  echo "git repo dotfiles already cloned"
-  su - pi -c "cd ~/github/dotfiles && git pull"
-fi
-
-#if [ -f "/etc/profile.d/sshpwd.sh" ]; then
-#  rm -f /etc/profile.d/sshpwd.sh
-#else
-#  echo "already removed sshpwd.sh"
-#fi
-
-#if [ ! -f "/etc/profile.d/motd.sh" ]; then
-#  cp -f /home/pi/github/mote/software/motd /etc/profile.d/motd.sh
-#  chmod a+x /etc/profile.d/motd.sh
-#else
-#  echo "already setup motd.sh"
-#fi
+./setup-dotfiles.sh
 
 # just in case root changed a permission in ~
 chown -R pi:pi /home/pi

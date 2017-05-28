@@ -44,4 +44,8 @@ if [[ ! -z "${PY3}" ]]; then
 	echo ""
 	su pi -c "pip3 install -U pip wheel setuptools"
 	su pi -c "pip3 install -U -r ${PWD}/requirements.txt"
+else
+	echo ""
+	echo "*** No Python3 detected ***"
+	echo ""
 fi
