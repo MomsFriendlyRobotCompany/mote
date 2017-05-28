@@ -4,6 +4,5 @@ flask
 requests
 numpy
 nose
-hostinfo
 pyarchey
 jupyter
