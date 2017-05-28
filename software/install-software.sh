@@ -24,13 +24,27 @@ else
 	cd ${HOME}/github
 	git clone https://github.com/walchko/raspbian_pkgs.git
 	cd raspbian_pkgs/debian_packages
+
+	echo ""
+	echo " *** install OpenCV ***"
+	echo ""
 	dpkg -i libopencv3-kevin.deb
+	sudo apt-get -y -f install
+	dpkg -i libopencv3-kevin.deb
+
+	echo ""
+	echo " *** install Python3 ***"
+	echo ""
 	dpkg -i python3-kevin.deb
+
+	echo ""
+	echo " *** install ZeroMQ ***"
+	echo ""
 	dpkg -i zeromq-kevin.deb
 
 	# handle node.js, Nodejs.org only supports ARMv7 with the latest (RPi3)
 	# however for Pi Zero (ARMv6) you need something else
-	NODE=`which node`
+	NODE=`which nodejs`
 
 	if [[ -z "${NODE}" ]]; then
 		ARM=`uname -m`

@@ -14,13 +14,30 @@ echo "| Setting Up Dotfiles       |"
 echo "============================="
 echo ""
 
-PWD=`/home/pi`
+HOME="/home/pi"
+PWD=`pwd`
+su pi -c "rm -f ${HOME}/.bashrc"
+su pi -c "ln -s ${PWD}/static/linux_bashrc ${HOME}/.bashrc"
 
-# commandline setup
-if [ ! -d "${PWD}/github/dotfiles" ]; then
-  su pi -c "cd ${PWD}/github && git clone http://github.com/walchko/dotfiles.git"
-  su pi -c "cd ${PWD}/github/dotfiles && ./linux-setup.sh"
+rm -f /etc/motd
+touch /etc/motd
+
+if [ -f "/etc/profile.d/sshpwd.sh" ]; then
+	rm -f /etc/profile.d/sshpwd.sh
 else
-  echo "git repo dotfiles already cloned"
-  su pi -c "cd ${PWD}/github/dotfiles && git pull"
+	echo ""
+	echo "*** already removed sshpwd.sh ***"
+	echo ""
 fi
+
+if [ ! -f "/etc/profile.d/motd.sh" ]; then
+	sudo ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
+else
+	echo ""
+	echo "*** already setup motd.sh ***"
+  	echo ""
+fi
+
+echo ""
+echo "*** Done ***"
+echo ""

@@ -36,6 +36,13 @@ Now go into the software directory and install/setup everything:
     ./install.sh
     ./setup.sh
 
+### What is happending?
+
+Both of the scripts `install.sh` and `setup.sh` are calling subscripts like
+`install-python.sh`. Originally these were big monolithic scripts, but from time
+to time, I only needed a part of the script. So now they are broken out, so if
+all you need is to setup smb, just run the `setup-smb.sh` and you are done.
+
 ## Git
 
 To setup `git` so you can work with something like bitbucket or github:
