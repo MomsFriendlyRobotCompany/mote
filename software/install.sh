@@ -59,30 +59,33 @@ apt-get -y install jp2a figlet
 #apt-get -y install python3k zeromq-kevin
 
 # install node.js
-#curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - 
+#curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 #apt-get install -y nodejs
 #npm install -g httpserver
 
 # python 2/3
-# run as pi?: sudo su - pi -c "commands"
-if [[ ! -f "/usr/local/bin/pip" ]]; then
-  wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
-  #su - pi -c "pip install -U pip wheel setuptools"
-  #su - pi -c "pip install -U -r requirements.txt"
-  # sed '1 c  #!/usr/local/bin/python3' /usr/local/bin/pip3 > test.txt
-else
-  echo "pip already installed"
-fi
+./install-python.sh
 
-# make a function for this?
-su - pi -c "pip install -U pip wheel setuptools"
-# su - pi -c "pip install -U -r /home/pi/github/mote/software/requirements.txt"
-#su - pi -c "python3 -m pip install -U pip wheel setuptools"
-# su - pi -c "python3 -m pip install -U -r /home/pi/github/mote/software/requirements.txt"
-# pip install -U pip wheel setuptools
-# pip install -U -r /home/pi/github/mote/software/requirements.txt
-# pip3 install -U pip wheel setuptools
-# pip3 install -U -r /home/pi/github/mote/software/requirements.txt
+
+# # run as pi?: sudo su - pi -c "commands"
+# if [[ ! -f "/usr/local/bin/pip" ]]; then
+#   wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
+#   #su - pi -c "pip install -U pip wheel setuptools"
+#   #su - pi -c "pip install -U -r requirements.txt"
+#   # sed '1 c  #!/usr/local/bin/python3' /usr/local/bin/pip3 > test.txt
+# else
+#   echo "pip already installed"
+# fi
+#
+# # make a function for this?
+# su - pi -c "pip install -U pip wheel setuptools"
+# # su - pi -c "pip install -U -r /home/pi/github/mote/software/requirements.txt"
+# #su - pi -c "python3 -m pip install -U pip wheel setuptools"
+# # su - pi -c "python3 -m pip install -U -r /home/pi/github/mote/software/requirements.txt"
+# # pip install -U pip wheel setuptools
+# # pip install -U -r /home/pi/github/mote/software/requirements.txt
+# # pip3 install -U pip wheel setuptools
+# # pip3 install -U -r /home/pi/github/mote/software/requirements.txt
 
 # update kernel
 rpi-update

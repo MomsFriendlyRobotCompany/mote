@@ -1,0 +1,13 @@
+[Service] 
+ ExecStart=/bin/ls 
+ Restart=always 
+ StandardOutput=syslog
+ StandardError=syslog
+ SyslogIdentifier=archeyjs
+ User=pi
+ Group=pi
+ Environment=NODE_ENV=production
+ 
+ [Install]
+ WantedBy=multi-user.target
+
