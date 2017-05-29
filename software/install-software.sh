@@ -14,6 +14,19 @@ echo "| Let's get some pkgs       |"
 echo "============================="
 echo ""
 
+echo ""
+echo "*** fixing apt sources ***"
+echo ""
+
+sh -c 'echo "deb http://www.deb-multimedia.org jessie main" >> /etc/apt/sources.list'
+
+echo ""
+echo "*** updating apt-get and installing ffmpeg ***"
+echo ""
+apt-get update
+apt-get -y install deb-multimedia-keyring
+apt-get -y install ffmpeg
+
 HOME='/home/pi'
 
 if [[ -f "${HOME}/github/raspbian_pkgs" ]]; then
@@ -36,6 +49,13 @@ else
 	echo " *** install Python3 ***"
 	echo ""
 	dpkg -i python3-kevin.deb
+
+	echo ""
+	echo " *** fix pip3 ***"
+	echo ""
+	cd ${RETURN}
+	rm -f /usr/local/bin/pip3
+	cp static/pip3 /usr/local/bin
 
 	echo ""
 	echo " *** install ZeroMQ ***"

@@ -19,7 +19,7 @@ apt-get -y install samba samba-common-bin
 # samba setup
 if [ ! -f "/etc/samba/smb.bak" ]; then
 	mv /etc/samba/smb.conf /etc/samba/smb.bak
-	cp smb.conf /etc/samba
+	cp static/smb.conf /etc/samba
 	smbpasswd -a pi
 	service smbd restart
 	service nmbd restart
