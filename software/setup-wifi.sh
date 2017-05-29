@@ -43,4 +43,4 @@ echo -e "${INFO}" >> /etc/wpa_supplicant/wpa_supplicant.conf
 
 echo "Network should be successfully added"
 echo ""
-echo `cat /etc/wpa_supplicant/wpa_supplicant.conf`
+cat /etc/wpa_supplicant/wpa_supplicant.conf
