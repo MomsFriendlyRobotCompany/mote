@@ -39,10 +39,38 @@
 #
 # echo ${LOCAL}
 
-PY2_VER=$(python3 --version 2>&1)
+# PY2_VER=$(python3 --version 2>&1)
+#
+# echo ""
+# echo "============================="
+# echo "| Setting up ${PY2_VER}"
+# echo "============================="
+# echo ""
 
-echo ""
-echo "============================="
-echo "| Setting up ${PY2_VER}"
-echo "============================="
-echo ""
+# need to pass in SSID and password
+if [[ $# -ne 2 ]] ; then
+	echo ""
+	echo "Please supply a 2 args: SSID and PASSWORD"
+	echo ""
+	exit 1
+fi
+
+SSID=$1
+PASSWORD=$2
+# HASH=`wpa_passphrase ${SSID} ${PASSWORD} | grep psk | awk '!/#/'`
+HASH="psk=42f638ae9a8a65275684a72ebf1879b98d0a2469eb3d829995a62aa5691f6615"
+
+# split the string on '='
+IFS='=' read -a myarray <<< "${HASH}"
+
+HASH="${myarray[1]}"
+
+INFO="\n\
+network={ \n\
+    ssid=\"${SSID}\" \n\
+    key_mgmt=WPA-PSK \n\
+    proto=WPA2 \n\
+    psk=\"${HASH}\" \n\
+} \n"
+
+echo -e "${INFO}" >> test.txt
