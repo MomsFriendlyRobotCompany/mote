@@ -24,13 +24,16 @@ do
 #  else
 #    break
 #  fi
-  IP=$(/sbin/ifconfig ${eth} | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1)
-  #if [[ $? ]]; then
-  if [[ ! -z "${IP}" ]]; then
-  #  echo "found ${eth}"
-    break
-  #else
-  #  echo "not found ${eth}"
+  TEST=`/sbin/ifconfig | grep ${eth}`
+  if [[ ! -z "${TEST}" ]]; then
+    IP=$(/sbin/ifconfig ${eth} | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1)
+    #if [[ $? ]]; then
+    if [[ ! -z "${IP}" ]]; then
+    #  echo "found ${eth}"
+      break
+    #else
+    #  echo "not found ${eth}"
+    fi
   fi
 done
 
