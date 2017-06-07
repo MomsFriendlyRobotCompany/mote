@@ -36,7 +36,7 @@ network={ \n\
     ssid=\"${SSID}\" \n\
     key_mgmt=WPA-PSK \n\
     proto=WPA2 \n\
-    psk=\"${HASH}\" \n\
+    psk=${HASH} \n\
 } \n"
 
 echo -e "${INFO}" >> /etc/wpa_supplicant/wpa_supplicant.conf
