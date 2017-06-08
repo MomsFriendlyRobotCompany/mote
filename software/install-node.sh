@@ -31,8 +31,8 @@ if [[ -z "${NODE}" ]]; then
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     apt-get install -y nodejs
   else
-    echo " > Detected older ARMv6, using local package"
-    dpkg -i node-armv6.deb
+    echo " > Detected older ARMv6, please install manually"
+    exit 1
   fi
   
   npm install npm@latest -g
@@ -41,4 +41,10 @@ if [[ -z "${NODE}" ]]; then
   echo ""
   echo "All done!"
   echo ""
+
+else
+  echo ""
+  echo "Node already installed!"
+  echo ""
+
 fi
