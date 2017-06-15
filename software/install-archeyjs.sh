@@ -8,7 +8,7 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# Unfortunately, nodejs is installed in different places, need to find
+# Unfortunately, nodejs is installed in different places, need to find it
 NODE=`which nodejs`
 LOCAL=false
 
