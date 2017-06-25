@@ -2,7 +2,7 @@
 
 # mote
 
-[![Build Status](https://travis-ci.org/walchko/mote.svg?branch=master)](https://travis-ci.org/walchko/mote)
+[![Build Status](https://travis-ci.org/MomsFriendlyRobotCompany/mote.svg?branch=master)](https://travis-ci.org/MomsFriendlyRobotCompany/mote)
 
 simple IoT robot. Currently travis-ci fails to build this for Python 3, but
 eventually I would like to make it compatable. It however, does work with
