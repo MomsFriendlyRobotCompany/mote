@@ -2,7 +2,6 @@
 
 from __future__ import print_function
 from __future__ import division
-import pygecko
 # import opencvutils as cvu
 from opencvutils import MJPEGServer
 import Socket
