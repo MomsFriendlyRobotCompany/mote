@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Unfortunately, nodejs is installed in different places, need to find it
-NODE=`which nodejs`
+NODE=`which node`
 LOCAL=false
 
 if [[ "${NODE}" =~ "/usr/local" ]]; then
@@ -26,7 +26,8 @@ fi
 # setup the service
 ARCHEYJS_FILE="archeyjs.service"
 
-if [[ ! -f "${ARCHEYJS_FILE}" ]]; then
+# if the file exists, remove it ... going to dynamically create it
+if [[ -f "${ARCHEYJS_FILE}" ]]; then
 	rm ${ARCHEYJS_FILE}
 fi
 
