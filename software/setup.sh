@@ -36,15 +36,15 @@ raspi-config nonint do_memory_split $GPUMEMORY
 
 # setup ----------------------------------------------
 # create keys, quiet, empty pass phrase
-./setup-ssh.sh
+# ./setup-ssh.sh
 
 # create temp and git folder
 su - pi -c "mkdir -p ~/tmp"
 # su - pi -c "mkdir -p ~/github"  # you are probably already running from here :P
 # su - pi -c "mkdir -p ~/bitbucket"
 
-# # samba setup
-./setup-smb.sh
+# samba setup
+# ./setup-smb.sh  # you HAVE TO enter a password for this, can't do it automagically ... so do manually
 
 # commandline setup
 ./setup-dotfiles.sh
