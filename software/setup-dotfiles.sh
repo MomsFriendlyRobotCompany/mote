@@ -30,13 +30,12 @@ else
 	echo ""
 fi
 
-if [ ! -f "/etc/profile.d/motd.sh" ]; then
-	sudo ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
-else
-	echo ""
-	echo "*** already setup motd.sh ***"
-  	echo ""
+# if something is there, delete it and redo
+if [ -f "/etc/profile.d/motd.sh" ]; then
+	sudo rm -f /etc/profile.d/motd.sh
 fi
+
+sudo ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
 
 echo ""
 echo "*** Done ***"
