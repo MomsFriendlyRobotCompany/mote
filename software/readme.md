@@ -21,6 +21,8 @@ Now go into the software directory and install/setup everything:
 Optional
 
     ./setup-git.sh <github-username>
+    ./setup-smb.sh  # you will be asked for a SMB password, just use raspberry
+    ./setup-ssh.sh
 
 Note, this is **not** run as root
 
