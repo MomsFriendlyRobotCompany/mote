@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-USEAGE="setup.sh HOSTNAME WIFI-SSID WIFI-PASSWORD
+USEAGE="setup.sh <HOSTNAME> <WIFI-SSID> <WIFI-PASSWORD>"
 
 # check if we are root
 if [ "$EUID" -ne 0 ] ; then
