@@ -1,6 +1,5 @@
 opencvutils
 build_utils
-flask
 requests
 numpy
 nose
