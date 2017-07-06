@@ -39,6 +39,7 @@ apt-get -y install libatlas-base-dev gfortran
 
 # python3
 apt-get -y install libmpdec2
+apt-get -y install python3
 
 # bluetooth
 apt-get -y install bluez libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev
@@ -46,46 +47,12 @@ apt-get -y install bluez libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev lib
 # ascii art
 apt-get -y install jp2a figlet
 
-# get updated packages
-#if [[ ! -d "/etc/apt/sources.list.d/walchko_robots.list" ]]; then
-#  curl -s https://packagecloud.io/install/repositories/walchko/robots/script.deb.sh | sudo bash
-#  apt-get update
-  # apt-get -y install python3k zeromq-kevin
-  # dpkg -i python3k libopencv3 zeromq-kevin
-#else
-#  echo "packagecloud is already setup"
-#fi
-
-#apt-get -y install python3k zeromq-kevin
-
-# install node.js
-#curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-#apt-get install -y nodejs
-#npm install -g httpserver
+# node - this ONLY works on RPi 3 (ARMv7) ... it will warn you if ARMv6
+./install-node.sh
+./install-archeyjs.sh
 
 # python 2/3
 ./install-python.sh
-
-
-# # run as pi?: sudo su - pi -c "commands"
-# if [[ ! -f "/usr/local/bin/pip" ]]; then
-#   wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
-#   #su - pi -c "pip install -U pip wheel setuptools"
-#   #su - pi -c "pip install -U -r requirements.txt"
-#   # sed '1 c  #!/usr/local/bin/python3' /usr/local/bin/pip3 > test.txt
-# else
-#   echo "pip already installed"
-# fi
-#
-# # make a function for this?
-# su - pi -c "pip install -U pip wheel setuptools"
-# # su - pi -c "pip install -U -r /home/pi/github/mote/software/requirements.txt"
-# #su - pi -c "python3 -m pip install -U pip wheel setuptools"
-# # su - pi -c "python3 -m pip install -U -r /home/pi/github/mote/software/requirements.txt"
-# # pip install -U pip wheel setuptools
-# # pip install -U -r /home/pi/github/mote/software/requirements.txt
-# # pip3 install -U pip wheel setuptools
-# # pip3 install -U -r /home/pi/github/mote/software/requirements.txt
 
 # update kernel
 rpi-update
