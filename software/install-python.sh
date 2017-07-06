@@ -11,6 +11,16 @@ fi
 # save the path of this file
 PWD=`pwd`
 
+# install python 2/3
+apt-get build-essential cmake pkg-config swig
+apt-get -y install libmpdec2
+apt-get install python-dev
+apt-get install python3-dev
+
+# numpy
+# need atlas | blas | f2py | fortran
+apt-get -y install libatlas-base-dev gfortran
+
 # python 2/3
 # note python outputs verison to STDERR, need to redirect to STDOUT
 PY2_VER=$(python --version 2>&1)
@@ -42,7 +52,11 @@ if [[ ! -z "${PY3}" ]]; then
 	echo "| Setting up ${PY3_VER}     |"
 	echo "============================="
 	echo ""
-	su pi -c "python3 get-pip.py"
+	if [[ -f "/usr/local/bin/pip3" ]]; then
+	  echo "*** you already have pip3 installed ***"
+	else
+	  su pi -c "python3 get-pip.py"
+	fi
 	su pi -c "pip3 install -U pip wheel setuptools"
 	su pi -c "pip3 install -U -r ${PWD}/static/requirements.txt"
 else
