@@ -4,7 +4,7 @@ set -e
 
 # check if we are root
 if [ "$EUID" -eq 0 ]
-	then echo "Please run as root"
+	then echo "setup-ssh.sh please DO NOT run root"
 	exit 1
 fi
 
