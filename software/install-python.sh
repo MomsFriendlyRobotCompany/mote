@@ -42,6 +42,7 @@ if [[ ! -z "${PY3}" ]]; then
 	echo "| Setting up ${PY3_VER}     |"
 	echo "============================="
 	echo ""
+	su pi -c "python3 get-pip.py"
 	su pi -c "pip3 install -U pip wheel setuptools"
 	su pi -c "pip3 install -U -r ${PWD}/static/requirements.txt"
 else
