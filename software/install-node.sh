@@ -24,8 +24,8 @@ echo ""
 
 echo "here"
 
-NODEJS=`which nodejs`
-
+#NODEJS=`which nodejs`
+NODEJS=`which ls`
 echo "${NODEJS}"
 echo "here 2"
 
