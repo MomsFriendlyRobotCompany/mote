@@ -24,11 +24,11 @@ echo ""
 
 echo "here"
 
-NODE="$(which nodejs)"
+NODEJS=`which nodejs`
 
-echo "${NODE}"
+echo "${NODEJS}"
 
-if [[ -z "${NODE}" ]] ; then
+if [[ -z "${NODEJS}" ]] ; then
   ARM="$(uname -m)"
   if [[ "$ARM" =~ "7" ]] ; then
     echo " > Detected ARMv7, downloading from nodejs.org"
