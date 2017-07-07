@@ -14,7 +14,7 @@ echo "| Setting up Node.js        |"
 echo "============================="
 echo ""
 
-# https://nodejs.org/en/download/package-manager/debian-and-ubuntu-based-linux-distributions
+# https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 #
 # curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 # sudo apt-get install -y nodejs
@@ -22,22 +22,19 @@ echo ""
 # handle node.js, Nodejs.org only supports ARMv7 with the latest (RPi3)
 # however for Pi Zero (ARMv6) you need something else
 
-echo "here"
+# exists()
+# {
+#   command -v "$1" >/dev/null 2>&1
+# }
 
-exists()
-{
-  command -v "$1" >/dev/null 2>&1
-}
+# #NODEJS=`which nodejs`
+# if exists nodejs; then
+#   NODEJS="good"
+# else
+#   NODJS=""
+# fi
 
-#NODEJS=`which nodejs`
-if exists nodejs; then
-  NODEJS="good"
-else
-  NODJS=""
-fi
-
-echo "${NODEJS}"
-echo "here 2"
+NODEJS=`command -v node`
 
 if [[ -z "${NODEJS}" ]] ; then
   ARM="$(uname -m)"
