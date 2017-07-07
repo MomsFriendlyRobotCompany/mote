@@ -27,6 +27,7 @@ echo "here"
 NODEJS=`which nodejs`
 
 echo "${NODEJS}"
+echo "here 2"
 
 if [[ -z "${NODEJS}" ]] ; then
   ARM="$(uname -m)"
