@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Unfortunately, nodejs is installed in different places, need to find it
-NODE=`which node`
+NODE=`command -v node`
 LOCAL=false
 
 if [[ "${NODE}" =~ "/usr/local" ]]; then
