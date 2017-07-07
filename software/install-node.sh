@@ -24,8 +24,18 @@ echo ""
 
 echo "here"
 
+exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+
 #NODEJS=`which nodejs`
-NODEJS=`which ls`
+if exists nodejs; then
+  NODEJS="good"
+else
+  NODJS=""
+fi
+
 echo "${NODEJS}"
 echo "here 2"
 
