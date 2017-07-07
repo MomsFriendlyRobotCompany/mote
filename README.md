@@ -37,13 +37,7 @@ Command line:
 
 ## Install
 
-For development you can also do:
-
-	sudo apt-get -y install git
-    git clone https://github.com/walchko/mote.git
-
 Follow the instructions in `software` for setting things up.
-
 
 # Licenses
 
