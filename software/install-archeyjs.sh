@@ -10,17 +10,17 @@ fi
 
 # Unfortunately, nodejs is installed in different places, need to find it
 NODE=`command -v node`
-LOCAL=false
+LOCAL="no"
 
 if [[ "${NODE}" =~ "/usr/local" ]]; then
 	echo "Node installed in /usr/local"
-	LOCAL=true
+	LOCAL="yes"
 else
 	echo "Node installed in /usr"
 fi
 
 # install archey
-if [[ ${LOCAL} ]]; then
+if [[ "${LOCAL}" =~ "yes" ]]; then
 	su - pi -c "npm install -g archeyjs"
 else
 	npm install -g archeyjs
