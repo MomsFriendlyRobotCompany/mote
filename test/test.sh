@@ -47,6 +47,18 @@
 # echo "============================="
 # echo ""
 
+
+TEST="$(which bob)"
+echo $TEST
+
+if [[ -z "${TEST}" ]] ; then
+  echo "file does not exist"
+fi
+
+exit 0
+
+
+
 # need to pass in SSID and password
 if [[ $# -ne 2 ]] ; then
 	echo ""
