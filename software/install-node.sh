@@ -21,6 +21,9 @@ echo ""
 
 # handle node.js, Nodejs.org only supports ARMv7 with the latest (RPi3)
 # however for Pi Zero (ARMv6) you need something else
+
+echo "here"
+
 NODE="$(which nodejs)"
 
 echo "${NODE}"
