@@ -23,24 +23,24 @@ echo ""
 # however for Pi Zero (ARMv6) you need something else
 NODE=`which nodejs`
 
-if [[ -z "${NODE}" ]]; then
+if [[ -z "${NODE}" ]] ; then
   ARM=`uname -m`
-  if [[ "$ARM" =~ "7" ]]; then
+  if [[ "$ARM" =~ "7" ]] ; then
     echo " > Detected ARMv7, downloading from nodejs.org"
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     apt-get install -y nodejs
+    
+    npm install npm@latest -g
+    npm install -g httpserver archeyjs
+    ./install-archeyjs.sh
+
+    echo ""
+    echo "All done!"
+    echo ""
   else
     echo " > Detected older ARMv6, please install manually"
     exit 1
   fi
-  
-  npm install npm@latest -g
-  npm install -g httpserver archeyjs
-  ./install-archeyjs.sh
-
-  echo ""
-  echo "All done!"
-  echo ""
 
 else
   echo ""
