@@ -34,9 +34,6 @@ if [[ -z "${NODE}" ]] ; then
     npm install -g httpserver archeyjs
     ./install-archeyjs.sh
 
-    echo ""
-    echo "All done!"
-    echo ""
   else
     echo " > Detected older ARMv6, please install manually"
     exit 1
@@ -48,3 +45,7 @@ else
   echo ""
 
 fi
+
+echo ""
+echo "All done!"
+echo ""
