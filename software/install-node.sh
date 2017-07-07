@@ -23,6 +23,8 @@ echo ""
 # however for Pi Zero (ARMv6) you need something else
 NODE="$(which nodejs)"
 
+echo "${NODE}"
+
 if [[ -z "${NODE}" ]] ; then
   ARM="$(uname -m)"
   if [[ "$ARM" =~ "7" ]] ; then
@@ -38,12 +40,10 @@ if [[ -z "${NODE}" ]] ; then
     echo " > Detected older ARMv6, please install manually"
     exit 1
   fi
-
 else
   echo ""
   echo "Node already installed!"
   echo ""
-
 fi
 
 echo ""
