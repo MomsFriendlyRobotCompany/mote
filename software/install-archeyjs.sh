@@ -13,7 +13,10 @@ NODE=`command -v node`
 LOCAL=false
 
 if [[ "${NODE}" =~ "/usr/local" ]]; then
+	echo "Node installed in /usr/local"
 	LOCAL=true
+else
+	echo "Node installed in /usr"
 fi
 
 # install archey
