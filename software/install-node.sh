@@ -4,8 +4,8 @@
 set -e
 
 # check for root
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
+if [[ "$EUID" -ne 0 ]] ; then
+  echo "Please run as root"
   exit
 fi
 
@@ -37,6 +37,7 @@ if [[ -z "${NODE}" ]]; then
   
   npm install npm@latest -g
   npm install -g httpserver archeyjs
+  ./install-archeyjs.sh
 
   echo ""
   echo "All done!"
