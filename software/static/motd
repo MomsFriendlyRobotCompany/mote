@@ -15,7 +15,7 @@ TOTMEM=$((`cat /proc/meminfo | grep MemTotal | awk {'print $2'}`/1024))
 #  IP=`/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`
 #fi
 #IP=""
-ifaces=("usb0" "eth0" "wlan0" "wlan1)
+ifaces=("usb0" "eth0" "wlan0" "wlan1")
 for eth in "${ifaces[@]}"
 do
 #  IP=`/sbin/ifconfig ${eth} | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`
