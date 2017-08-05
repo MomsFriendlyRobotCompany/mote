@@ -34,7 +34,9 @@ echo ""
 #   NODJS=""
 # fi
 
-NODEJS=`command -v node`
+apt-get remove --purge nodejs
+
+NODEJS=""
 
 if [[ -z "${NODEJS}" ]] ; then
   ARM="$(uname -m)"
