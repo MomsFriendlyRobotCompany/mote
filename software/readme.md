@@ -18,13 +18,14 @@ Now go into the software directory and install/setup everything:
     sudo ./install.sh
     sudo ./setup.sh <hostname> <wifi-ssid> <wifi-password>
 
-Optional
+## Optional with `sudo`
+
+    sudo ./setup-smb.sh  # you will be asked for a SMB password, just use raspberry
+
+## Optional as `pi`
 
     ./setup-git.sh <github-username>
-    ./setup-smb.sh  # you will be asked for a SMB password, just use raspberry
     ./setup-ssh.sh
-
-Note, this is **not** run as root
 
 ## ffmpeg Issue
 
