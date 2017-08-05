@@ -15,7 +15,11 @@ PWD=`pwd`
 apt-get build-essential cmake pkg-config swig
 apt-get -y install libmpdec2
 apt-get install python-dev
-apt-get install python3-dev
+apt-get install python3 python3-dev
+
+# get rid of any pip package crap
+apt-get -y remove --purge python-pip python-pip-whl python3-pip
+apt-get autoremove
 
 # numpy
 # need atlas | blas | f2py | fortran
@@ -39,10 +43,10 @@ fi
 
 # update
 # make a function for this?
-su pi -c "pip install -U pip wheel setuptools"
-su pi -c "pip install -U -r ${PWD}/static/requirements.txt"
+pip install -U pip wheel setuptools
+pip install -U -r ${PWD}/static/requirements.txt
 
-PY3=`which python3`
+PY3="/usr/bin/python3"
 
 # check to see if string is empty, meaning python3 not installed
 if [[ ! -z "${PY3}" ]]; then
@@ -55,12 +59,17 @@ if [[ ! -z "${PY3}" ]]; then
 	if [[ -f "/usr/local/bin/pip3" ]]; then
 	  echo "*** you already have pip3 installed ***"
 	else
-	  su pi -c "python3 get-pip.py"
+	  python3 get-pip.py
 	fi
-	su pi -c "pip3 install -U pip wheel setuptools"
-	su pi -c "pip3 install -U -r ${PWD}/static/requirements.txt"
+	pip3 install -U pip wheel setuptools
+	pip3 install -U -r ${PWD}/static/requirements.txt
 else
 	echo ""
 	echo "*** No Python3 detected ***"
 	echo ""
 fi
+
+# fix permissions
+chown -R pi:pi /usr/local
+chown -R pi:pi /usr/lib/python2.7/dist-packages
+chown -R pi:pi /usr/lib/python3/dist-packages
