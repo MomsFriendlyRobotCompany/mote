@@ -26,6 +26,20 @@ if [[ $# -ne 2 ]] ; then
   exit 1
 fi
 
+# args:
+#  file_name
+#  old_dist
+#  new_dist
+update_file() {
+  # check to see if file exists, if so, update it
+  if [[ -f $1 ]]; then
+    # substitute (s) / old_dist ($2) / with new_dist ($3) / globally (g)  in file_name ($1)
+    sed -i "s/$2/$3/g" $1
+  else
+    echo "*** $1 doesn't exist ***"
+  fi
+}
+
 OLD_DISTRO=$1
 DISTRO=$2
 
@@ -46,9 +60,12 @@ export DEBIAN_FRONTEND=noninteractive
 
 # change distro name in repo lists
 # substitute (s) OLD_DISTRO with DISTRO, globally (g)
-sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list
-sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list.d/nodesource.list
-sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list.d/raspi.list
+# sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list
+# sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list.d/nodesource.list
+# sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list.d/raspi.list
+update_file /etc/apt/sources.list                   ${OLD_DISTRO} ${DISTRO}
+update_file /etc/apt/sources.list.d/nodesource.list ${OLD_DISTRO} ${DISTRO}
+update_file /etc/apt/sources.list.d/raspi.list      ${OLD_DISTRO} ${DISTRO}
 
 # now do the actual upgrade
 apt-get update
