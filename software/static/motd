@@ -37,16 +37,20 @@ do
   fi
 done
 
+# get os release
+REL=`cat /etc/os-release | grep PRETTY_NAME | cut -d "\"" -f 2`
+
 DF=`df -h | grep /dev/root | awk {'print $3 "B (Used) / " $2 "B (Total)"'}`
 CPUTEMP=$((`cat /sys/class/thermal/thermal_zone0/temp`/1000*9/5+32))
 
 # get the load averages
 read one five fifteen rest < /proc/loadavg
 
-figlet `uname -n`
+/usr/bin/figlet `uname -n`
 echo "$(tput setaf 2)
 `date +"%A, %e %B %Y, %r"`
-`uname -srmo`$(tput setaf 1)
+`uname -srmo`
+${REL} $(tput setaf 1)
 
 Uptime.............: ${UPTIME}
 Memory.............: ${FREEMEM} MB (Free) / ${TOTMEM} MB (Total)
