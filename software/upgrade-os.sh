@@ -12,7 +12,7 @@ fi
 if [[ $# -ne 2 ]] ; then
   echo "-------------------------------------------"
   echo "Please supply the old and new distro name"
-  echo "  upgrade-os.sh jessie stretch
+  echo "  upgrade-os.sh jessie stretch"
   echo "-------------------------------------------"
   exit 1
 fi
