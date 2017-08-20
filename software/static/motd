@@ -26,7 +26,10 @@ do
 #  fi
   TEST=`/sbin/ifconfig | grep ${eth}`
   if [[ ! -z "${TEST}" ]]; then
-    IP=$(/sbin/ifconfig ${eth} | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1)
+    # jessie
+    #IP=$(/sbin/ifconfig ${eth} | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1)
+    # stretch
+    IP=$(/sbin/ifconfig ${eth} | /bin/grep "inet " | /usr/bin/awk {'print $2'})
     #if [[ $? ]]; then
     if [[ ! -z "${IP}" ]]; then
     #  echo "found ${eth}"
