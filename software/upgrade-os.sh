@@ -33,7 +33,8 @@ apt-get dist-upgrade -y
 apt-get autoremove -y
 
 # change distro name
-sed -i 's/${OLD_DISTRO}/${DISTRO}/g' /etc/apt/sources.list
+# substitute (s) OLD_DISTRO with DISTRO, globally (g)
+sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list
 
 # now do the actual upgrade
 apt-get update
