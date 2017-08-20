@@ -32,6 +32,9 @@ apt-get upgrade -y
 apt-get dist-upgrade -y
 apt-get autoremove -y
 
+# there are stupid dialogs that open up ... try to stop them
+export DEBIAN_FRONTEND=noninteractive
+
 # change distro name
 # substitute (s) OLD_DISTRO with DISTRO, globally (g)
 sed -i "s/${OLD_DISTRO}/${DISTRO}/g" /etc/apt/sources.list
