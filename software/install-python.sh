@@ -32,10 +32,10 @@ PWD=`pwd`
 
 
 # install python 2/3
-apt-get build-essential cmake pkg-config swig
+apt-get -y install build-essential cmake pkg-config swig
 apt-get -y install libmpdec2
-apt-get install python-dev
-apt-get install python3 python3-dev
+apt-get -y install python-dev
+apt-get -y install python3 python3-dev
 
 # get rid of any pip package crap
 apt-get -y remove --purge python-pip python-pip-whl python3-pip
