@@ -24,6 +24,9 @@ mkdir -p ~/tmp
 # commandline setup
 ./setup-dotfiles.sh $1
 
+# message of the day
+./setup-motd.sh
+
 # setup wifi
 ./setup-wifi.sh $2 $3
 
