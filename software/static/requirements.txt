@@ -1,6 +1,4 @@
-opencvutils
 build_utils
 requests
-numpy
 nose
 pyarchey
