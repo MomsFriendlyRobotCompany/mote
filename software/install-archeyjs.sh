@@ -27,38 +27,54 @@ else
 fi
 
 # setup the service
-ARCHEYJS_FILE="archeyjs.service"
+ARCHEYJS_FILE="/etc/systemd/system/archeyjs.service"
 
 # if the file exists, remove it ... going to dynamically create it
 if [[ -f "${ARCHEYJS_FILE}" ]]; then
 	rm ${ARCHEYJS_FILE}
 fi
 
-ARCHEYJS=`which archeyjs`
+# ARCHEYJS=`which archeyjs`
+ARCHEYJS=`command -v archeyjs`
 
-SERVICE="\
-[Service] \n                              \
-ExecStart=${ARCHEYJS} \n     \
-Restart=always \n                        \
-StandardOutput=syslog\n                \
-StandardError=syslog\n                \
-SyslogIdentifier=archeyjs\n              \
-User=pi\n                            \
-Group=pi\n \
-Environment=NODE_ENV=production\n \
-\n \
-[Install]\n \
-WantedBy=multi-user.target\n"
+# SERVICE="\
+# [Service] \n                              \
+# ExecStart=${ARCHEYJS} \n     \
+# Restart=always \n                        \
+# StandardOutput=syslog\n                \
+# StandardError=syslog\n                \
+# SyslogIdentifier=archeyjs\n              \
+# User=pi\n                            \
+# Group=pi\n \
+# Environment=NODE_ENV=production\n \
+# \n \
+# [Install]\n \
+# WantedBy=multi-user.target\n"
+#
+# # The -e makes echo respect the \n properly
+# echo -e ${SERVICE} > ${ARCHEYJS_FILE}
 
-# The -e makes echo respect the \n properly
-echo -e ${SERVICE} > ${ARCHEYJS_FILE}
+cat <<EOF >${ARCHEYJS_FILE}
+[Service]
+ExecStart=${ARCHEYJS}
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=archeyjs
+User=pi
+Group=pi
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target"
+EOF
 
 # copy
-if [ ! -f "/etc/systemd/system/archeyjs.service" ]; then
-  cp archeyjs.service /etc/systemd/system/
-else
-  echo "archeyjs already set up"
-fi
+# if [ ! -f ${ARCHEYJS_FILE} ]; then
+#   cp archeyjs.service /etc/systemd/system/
+# else
+#   echo "archeyjs already set up"
+# fi
 
 # update and start
 systemctl enable archeyjs

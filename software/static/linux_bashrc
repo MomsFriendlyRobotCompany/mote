@@ -60,3 +60,7 @@ fi
 pip-upgrade-all() {
     pip list --outdated | cut -d' ' -f1 | xargs pip install --upgrade
 }
+
+pip3-upgrade-all() {
+    pip3 list --outdated | cut -d' ' -f1 | xargs pip3 install --upgrade
+}

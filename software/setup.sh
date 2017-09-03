@@ -15,39 +15,14 @@ if [[ $# -ne 3 ]] ; then
   exit 1
 fi
 
-# constants -----------------------------------------
-# 0 - on
-# 1 - off
-ON=0
-OFF=1
-
-# set these -----------------------------------------
-HOSTNAME=$1
-GPUMEMORY=16
-WIFI=US
-
-# config system --------------------------------------
-raspi-config nonint do_hostname $HOSTNAME
-raspi-config nonint do_i2c $ON
-raspi-config nonint do_spi $ON
-raspi-config nonint do_wifi_country $WIFI
-raspi-config nonint do_camera $ON
-raspi-config nonint do_memory_split $GPUMEMORY
-
-# setup ----------------------------------------------
-# create keys, quiet, empty pass phrase
-# ./setup-ssh.sh
+# configure -----------------------------------------
+./setup-raspi-config.sh
 
 # create temp and git folder
-su - pi -c "mkdir -p ~/tmp"
-# su - pi -c "mkdir -p ~/github"  # you are probably already running from here :P
-# su - pi -c "mkdir -p ~/bitbucket"
-
-# samba setup
-# ./setup-smb.sh  # you HAVE TO enter a password for this, can't do it automagically ... so do manually
+mkdir -p ~/tmp
 
 # commandline setup
-./setup-dotfiles.sh
+./setup-dotfiles.sh $1
 
 # setup wifi
 ./setup-wifi.sh $2 $3

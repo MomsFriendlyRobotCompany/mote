@@ -27,7 +27,7 @@ setup_pip(){
   else
     echo "${PIP} already installed"
   fi
-  
+
   ${PIP} install -U pip wheel setuptools
 }
 
@@ -49,7 +49,6 @@ apt-get autoremove
 apt-get -y install libatlas-base-dev gfortran
 
 # python 2/3
-
 setup_pip pip python
 # pip install -U -r ${PWD}/static/requirements.txt
 

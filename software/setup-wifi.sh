@@ -31,16 +31,26 @@ IFS='=' read -a myarray <<< "${PSK}"
 
 HASH="${myarray[1]}"
 
-INFO="\n\
-network={ \n\
-    ssid=\"${SSID}\" \n\
-    key_mgmt=WPA-PSK \n\
-    proto=WPA2 \n\
-    psk=${HASH} \n\
-} \n"
+# INFO="\n\
+# network={ \n\
+#     ssid=\"${SSID}\" \n\
+#     key_mgmt=WPA-PSK \n\
+#     proto=WPA2 \n\
+#     psk=${HASH} \n\
+# } \n"
+#
+# echo -e "${INFO}" >> /etc/wpa_supplicant/wpa_supplicant.conf
 
-echo -e "${INFO}" >> /etc/wpa_supplicant/wpa_supplicant.conf
+cat <<EOF >>/etc/wpa_supplicant/wpa_supplicant.conf
+network={
+    ssid=\"${SSID}\"
+    key_mgmt=WPA-PSK
+    proto=WPA2
+    psk=${HASH}
+}
+EOF
+
+cat /etc/wpa_supplicant/wpa_supplicant.conf
 
 echo "Network should be successfully added"
 echo ""
-cat /etc/wpa_supplicant/wpa_supplicant.conf

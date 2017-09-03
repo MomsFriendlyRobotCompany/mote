@@ -16,11 +16,11 @@ echo ""
 
 HOME="/home/pi"
 PWD=`pwd`
-su pi -c "rm -f ${HOME}/.bashrc"
+rm -f ${HOME}/.bashrc
 su pi -c "ln -s ${PWD}/static/linux_bashrc ${HOME}/.bashrc"
 
-rm -f /etc/motd
-touch /etc/motd
+# rm -f /etc/motd
+# touch /etc/motd
 
 if [ -f "/etc/profile.d/sshpwd.sh" ]; then
 	rm -f /etc/profile.d/sshpwd.sh
@@ -31,12 +31,14 @@ else
 fi
 
 # if something is there, delete it and redo
-if [ -f "/etc/profile.d/motd.sh" ]; then
-	rm -f /etc/profile.d/motd.sh
-fi
+# if [ -f "/etc/profile.d/motd.sh" ]; then
+# 	rm -f /etc/profile.d/motd.sh
+# fi
 
-ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
+# ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
+
+SCRIPT=$0
 
 echo ""
-echo "*** Done ***"
+echo "*** Done: ${SCRIPT} ***"
 echo ""
