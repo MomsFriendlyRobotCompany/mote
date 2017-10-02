@@ -48,6 +48,10 @@ apt-get -y install bluez libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev lib
 # ascii art
 apt-get -y install jp2a figlet
 
+# python package lxml is a BITCH ... it NEVER updates nicely, so you need these
+# http://lxml.de/installation.html
+apt-get -y install libxml2-dev libxslt-dev python-dev
+
 # node - this ONLY works on RPi 3 (ARMv7) ... it will warn you if ARMv6
 ./install-node.sh
 ./install-archeyjs.sh
