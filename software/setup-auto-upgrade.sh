@@ -38,6 +38,12 @@ pip3 list --outdated | cut -d' ' -f1 | xargs pip3 install --upgrade
 echo "*** update npm packages ***"
 npm install npm@latest -g
 
+# remove the old file, so we don't get a million of them
+FILE=`find /home/pi -name 'system-update-on*'`
+if [[ ! -z "${FILE}" ]]; then
+	rm ${FILE}
+fi
+
 # let people know we upgraded things
 FNAME=`date | { read x; echo "${x// /-}"; }`
 touch "/home/pi/system-updated-on-${FNAME}"
