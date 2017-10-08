@@ -24,6 +24,16 @@ fi
 cat <<'EOF' >${AUTOUPGRADE_FILE}
 #!/bin/bash
 
+# check online
+wget -q --spider http://google.com
+
+if [ $? -eq 0 ]; then
+    echo "*** Online ***"
+else
+    echo "*** Offline, no access to internet ***"
+	return 1
+fi
+
 echo "*** upgrade base system ***"
 apt-get update
 apt-get upgrade -y
