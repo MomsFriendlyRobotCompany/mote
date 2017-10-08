@@ -36,12 +36,13 @@ echo "*** upgrade python 3 ***"
 pip3 list --outdated | cut -d' ' -f1 | xargs pip3 install --upgrade
 
 echo "*** update npm packages ***"
-npm install npm@latest -g
+npm i -g npm
+npm update -g
 
 # remove the old file, so we don't get a million of them
-FILE=`find /home/pi -name 'system-update-on*'`
-if [[ ! -z "${FILE}" ]]; then
-	rm ${FILE}
+UFILE=`find /home/pi -name 'system-update-on*'`
+if [[ ! -z "${UFILE}" ]]; then
+	rm ${UFILE}
 fi
 
 # let people know we upgraded things
