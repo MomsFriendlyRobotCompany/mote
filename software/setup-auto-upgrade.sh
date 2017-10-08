@@ -31,7 +31,7 @@ if [ $? -eq 0 ]; then
     echo "*** Online ***"
 else
     echo "*** Offline, no access to internet ***"
-	return 1
+    return 1
 fi
 
 echo "*** upgrade base system ***"
