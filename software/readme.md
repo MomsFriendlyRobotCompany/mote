@@ -18,19 +18,36 @@ Now go into the software directory and install/setup everything:
     sudo ./install.sh
     sudo ./setup.sh <hostname> <wifi-ssid> <wifi-password>
 
+# Optional Setup
+
+## Optional auto-updates
+
+This will create a cron job that runs weekly to update: `apt-get`, `pip`, `pip3`,
+`npm`. If you want, you could also add `rpi-update` to the script and update
+the kernel weekly too.
+
+	sudo ./setup-auto-upgrade.sh
+
 ## Optional with `sudo`
+
+I can't make this automatic, you **must** input a password from the command line
+so I made it optional.
 
     sudo ./setup-smb.sh  # you will be asked for a SMB password, just use raspberry
 
 ## Optional as `pi`
 
+Just makes working with `git` nicer.
+
     ./setup-git.sh <github-username>
     ./setup-ssh.sh
 
+# Other
+
 ## ffmpeg Issue
 
-Debian (morons) removed ffmpeg from the distro, so you have to add another repo to 
-get it. If you get the following error when trying to update:
+Debian (morons) removed ffmpeg from the distro, so you have to add another repo
+to get it. If you get the following error when trying to update:
 
     W: GPG error: http://www.deb-multimedia.org jessie InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 5C808C2B65558117
 
@@ -49,7 +66,7 @@ You can disable the check with:
 
     ssh -o UserKnownHostsFile=/dev/null pi@raspberrypi.local
 
-### What is happending?
+# What is happending?
 
 Both of the scripts `install.sh` and `setup.sh` are calling subscripts like
 `install-python.sh`. Originally these were big monolithic scripts, but from time
