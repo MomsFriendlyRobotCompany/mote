@@ -21,7 +21,7 @@ if [[ -f "${AUTOUPGRADE_FILE}" ]]; then
 	rm ${AUTOUPGRADE_FILE}
 fi
 
-cat <<EOF >${AUTOUPGRADE_FILE}
+cat <<'EOF' >${AUTOUPGRADE_FILE}
 #!/bin/bash
 
 echo "*** upgrade base system ***"
