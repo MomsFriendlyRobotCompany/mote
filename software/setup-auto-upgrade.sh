@@ -50,7 +50,7 @@ npm i -g npm
 npm update -g
 
 # remove the old file, so we don't get a million of them
-UFILE=`find /home/pi -name 'system-update-on*'`
+UFILE=`find /home/pi -name 'system-updated-on*'`
 if [[ ! -z "${UFILE}" ]]; then
 	rm ${UFILE}
 fi
