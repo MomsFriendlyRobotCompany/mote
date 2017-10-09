@@ -58,6 +58,9 @@ fi
 # let people know we upgraded things
 FNAME=`date | { read x; echo "${x// /-}"; }`
 touch "/home/pi/system-updated-on-${FNAME}"
+chown pi:pi "/home/pi/system-updated-on-${FNAME}"
+
+chown -R pi:pi /usr/local
 
 exit 0
 EOF
