@@ -110,6 +110,6 @@ if [[ -z "${REREAD}" ]]; then
 else
   echo "*** need to reload service due to changes ***"
   systemctl daemon-reload
-  systemctl start autoupdate.timer
-  systemctl start autoupdate.service
+  systemctl start autoupgrade.timer
+  systemctl start autoupgrade.service
 fi
