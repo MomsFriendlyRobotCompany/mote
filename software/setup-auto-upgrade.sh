@@ -102,9 +102,9 @@ EOF
 
 if [[ -z "${REREAD}" ]]; then
   echo "*** enabling/starting timer and service ***"
-  systemctl start autoupdate.timer
-  systemctl enable autoupdate.timer
-  systemctl start autoupdate.service
+  systemctl start autoupgrade.timer
+  systemctl enable autoupgrade.timer
+  systemctl start autoupgrade.service
   echo " to see timers, run: sudo systemctl list-timers --all"
   echo " to see output, run: sudo journalctl -u autoupgrade"
 else
