@@ -15,3 +15,5 @@ get-pip.py
 archeyjs.service
 .DS_Store
 ._.*
+._*
+*.swp
