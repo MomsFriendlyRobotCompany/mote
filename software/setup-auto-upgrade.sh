@@ -111,5 +111,6 @@ else
   echo "*** need to reload service due to changes ***"
   systemctl daemon-reload
   systemctl start autoupgrade.timer
+  systemctl enable autoupgrade.timer
   systemctl start autoupgrade.service
 fi
