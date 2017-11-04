@@ -33,7 +33,7 @@ if [[ -f "/etc/dnsmasq.conf" ]]; then
   echo ""
   echo " You have already run this ... do it by hand"
   echo ""
-  return 1
+  exit 1
 fi
 
 echo "<<< Updating and installing software >>>"
