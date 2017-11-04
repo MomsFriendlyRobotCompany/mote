@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 if [[ $# -eq 0 ]] ; then
-  echo "Please supply a hostname"
+  echo "$0: Please supply a hostname"
   exit 1
 fi
 

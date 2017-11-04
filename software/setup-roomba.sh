@@ -23,13 +23,15 @@ if [ "$EUID" -ne 0 ] ; then
 fi
 
 if [[ $# -ne 1 ]] ; then
-  echo "Please supply a hostname"
+  echo "$0: Please supply a hostname"
   echo $USEAGE
   exit 1
 fi
 
+HOSTNAME=$1
+
 # configure -----------------------------------------
-./setup-raspi-config.sh
+./setup-raspi-config.sh ${HOSTNAME}
 
 # create temp folder
 mkdir -p /home/pi/tmp
