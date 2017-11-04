@@ -31,6 +31,14 @@ setup_pip(){
   ${PIP} install -U pip wheel setuptools
 }
 
+pip-upgrade-all() {
+    pip list --outdated | cut -d' ' -f1 | xargs pip install --upgrade
+}
+
+pip3-upgrade-all() {
+    pip3 list --outdated | cut -d' ' -f1 | xargs pip3 install --upgrade
+}
+
 # save the path of this file
 PWD=`pwd`
 
@@ -59,3 +67,6 @@ setup_pip pip3 python3
 chown -R pi:pi /usr/local
 chown -R pi:pi /usr/lib/python2.7/dist-packages
 chown -R pi:pi /usr/lib/python3/dist-packages
+
+# pip-upgrade-all
+# pip3-upgrade-all
