@@ -11,3 +11,4 @@ mcp3208
 nxp-imu
 pyhexdump
 the-collector
+sparklines
