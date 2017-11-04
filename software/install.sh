@@ -69,5 +69,9 @@ chown -R pi:pi /usr/local
 echo ""
 echo "============================="
 echo "| Done !!! :)               |"
+echo "|                           |"
+echo "| Rebooting NOW !!!!!!!!    |"
 echo "============================="
 echo ""
+
+reboot now
