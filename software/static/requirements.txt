@@ -2,3 +2,12 @@ build_utils
 requests
 nose
 pyarchey
+pycreate2
+numpy
+opencvutils
+ar-markers
+ins-nav
+mcp3208
+nxp-imu
+pyhexdump
+the-collector
