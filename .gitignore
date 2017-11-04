@@ -18,4 +18,5 @@ archeyjs.service
 ._*
 *.swp
 autoupgrade.sh
-smb.conf
+*.conf
+*.service
