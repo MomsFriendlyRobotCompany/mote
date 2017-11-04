@@ -1,4 +1,6 @@
 #!/bin/bash
+# you can pass an arg of which adaptor to use for the access point
+# setup-access-point wlan1
 
 set -e
 
@@ -12,10 +14,6 @@ WLAN=""
 
 # need wireless adaptor
 if [[ $# -ne 1 ]] ; then
-	# echo ""
-	# echo "Please supply 1 args: WLANX where X is 0 or 1"
-	# echo ""
-	# exit 1
   WLAN="wlan0"
 else
   WLAN=$1
