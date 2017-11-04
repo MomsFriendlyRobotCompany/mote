@@ -22,6 +22,7 @@ if [ -f "/etc/profile.d/motd.sh" ]; then
 	rm -f /etc/profile.d/motd.sh
 fi
 
+# link motd file so I can easily update everything with a git pull
 PWD=`pwd`
 ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
 

@@ -22,7 +22,7 @@ fi
 mkdir -p ~/tmp
 
 # commandline setup
-./setup-dotfiles.sh $1
+./setup-dotfiles.sh
 
 # message of the day
 ./setup-motd.sh
