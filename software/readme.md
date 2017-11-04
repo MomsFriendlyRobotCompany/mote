@@ -22,9 +22,9 @@ Now go into the software directory and install/setup everything:
 
 ## Optional auto-updates
 
-This will create a cron job that runs weekly to update: `apt-get`, `pip`, `pip3`,
+This will create a service that runs weekly to update: `apt-get`, `pip`, `pip3`,
 `npm`. If you want, you could also add `rpi-update` to the script and update
-the kernel weekly too.
+the kernel weekly too (not sure that is a great idea though).
 
 	sudo ./setup-auto-upgrade.sh
 
@@ -42,7 +42,7 @@ Just makes working with `git` nicer.
     ./setup-git.sh <github-username>
     ./setup-ssh.sh
 
-# Other
+# Old Jessie Issue
 
 ## ffmpeg Issue
 
