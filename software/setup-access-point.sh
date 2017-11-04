@@ -91,7 +91,7 @@ wpa_pairwise=CCMP
 rsn_pairwise=CCMP
 EOF
 
-cat <<EOF >/etc/system.d/system/hostapd.service
+cat <<EOF >/etc/systemd/system/hostapd.service
 [Unit]
 Description=Hostapd Access Point
 After=sys-subsystem-net-devices-${WLAN}.device
