@@ -47,10 +47,10 @@ mkdir -p /home/pi/tmp
 
 # double check everything is updated
 pip install -U pip setuptools wheel
-pip3 install -U pip setuptools wheel
+# pip3 install -U pip setuptools wheel
 
 pip-upgrade-all
-pip3-upgrade-all
+# pip3-upgrade-all
 
 # install roomba specific stuff
 PYLIBS="opencvutils build_utils numpy nose pycreate2 \
