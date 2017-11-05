@@ -45,7 +45,8 @@ systemctl stop hostapd
 
 echo "<<< Setting up interfaces, moving current config file to *.orig >>>"
 
-#  I think this is breaking it -----------
+# -----------------
+#  I think this is breaking it
 # there are 2 wlan0 entries
 # mv /etc/network/interfaces /etc/network/interfaces.orig
 # cat <<EOF >>/etc/network/interfaces
@@ -56,6 +57,22 @@ echo "<<< Setting up interfaces, moving current config file to *.orig >>>"
 #   network 10.10.10.0
 # EOF
 # -----------------
+
+mv /etc/network/interfaces /etc/network/interfaces.orig
+cat <<EOF >/etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+allow-hotplug ${WLAN}
+iface ${WLAN} inet static
+  address 10.10.10.1
+  netmask 255.255.255.0
+  network 10.10.10.0
+EOF
 
 echo "<<< Setting up DNSMASQ >>>"
 
