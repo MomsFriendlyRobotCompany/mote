@@ -42,22 +42,7 @@ Just makes working with `git` nicer.
     ./setup-git.sh <github-username>
     ./setup-ssh.sh
 
-# Old Jessie Issue
-
-## ffmpeg Issue
-
-Debian (morons) removed ffmpeg from the distro, so you have to add another repo
-to get it. If you get the following error when trying to update:
-
-    W: GPG error: http://www.deb-multimedia.org jessie InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 5C808C2B65558117
-
-Try this:
-
-    sudo apt-get install deb-multimedia-keyring
-
-That should fix it.
-
-## Bypass known_hosts
+# Bypass known_hosts
 
 Since all RPi's hostname are raspberrypi.local, it **sucks** when you try to connect
 to a new one and you get the man-in-the-middle attack warning.
@@ -72,3 +57,18 @@ Both of the scripts `install.sh` and `setup.sh` are calling subscripts like
 `install-python.sh`. Originally these were big monolithic scripts, but from time
 to time, I only needed a part of the script. So now they are broken out, so if
 all you need is to setup smb, just run the `setup-smb.sh` and you are done.
+
+# Old Jessie Issue
+
+## ffmpeg Issue
+
+Debian (morons) removed ffmpeg from the distro, so you have to add another repo
+to get it. If you get the following error when trying to update:
+
+    W: GPG error: http://www.deb-multimedia.org jessie InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 5C808C2B65558117
+
+Try this:
+
+    sudo apt-get install deb-multimedia-keyring
+
+That should fix it.
