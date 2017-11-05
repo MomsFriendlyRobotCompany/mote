@@ -33,6 +33,7 @@ mkdir -p ~/tmp
 # just in case root changed a permission in ~
 chown -R pi:pi /home/pi
 chown -R pi:pi /usr/local
+chown -R pi:pi /usr/lib/python2.7
 
 echo ""
 echo "============================="
