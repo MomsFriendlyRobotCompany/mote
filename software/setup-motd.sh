@@ -27,5 +27,5 @@ PWD=`pwd`
 ln -s ${PWD}/static/motd /etc/profile.d/motd.sh
 
 echo ""
-echo "*** Done ***"
+echo "*** $0 Done ***"
 echo ""

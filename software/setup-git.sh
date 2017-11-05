@@ -17,5 +17,5 @@ git config --global push.default simple
 git config --global core.ignorecase false
 
 echo ""
-echo "Done ..."
+echo "*** $0 Done ***"
 echo ""

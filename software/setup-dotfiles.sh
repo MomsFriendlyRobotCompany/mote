@@ -27,3 +27,7 @@ else
 	echo "*** already removed sshpwd.sh ***"
 	echo ""
 fi
+
+echo ""
+echo "*** $0 Done ***"
+echo ""

@@ -114,3 +114,7 @@ else
   systemctl enable autoupgrade.timer
   systemctl start autoupgrade.service
 fi
+
+echo ""
+echo "*** $0 Done ***"
+echo ""

@@ -43,7 +43,7 @@ mkdir -p /home/pi/tmp
 ./setup-motd.sh
 
 # setup access point with default wlan0
-./setup-access-point.sh
+# ./setup-access-point.sh
 
 # double check everything is updated
 pip install -U pip setuptools wheel

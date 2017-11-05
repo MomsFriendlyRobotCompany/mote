@@ -52,5 +52,6 @@ EOF
 
 cat /etc/wpa_supplicant/wpa_supplicant.conf
 
-echo "Network should be successfully added"
+echo ""
+echo "*** $0 Done ***"
 echo ""

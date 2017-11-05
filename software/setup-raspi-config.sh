@@ -31,3 +31,7 @@ raspi-config nonint do_spi $ON
 raspi-config nonint do_wifi_country $WIFI
 raspi-config nonint do_camera $ON
 raspi-config nonint do_memory_split $GPUMEMORY
+
+echo ""
+echo "*** $0 Done ***"
+echo ""

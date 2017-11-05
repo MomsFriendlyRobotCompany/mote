@@ -44,7 +44,7 @@ if [[ -z "${NODEJS}" ]] ; then
     echo " > Detected ARMv7, downloading from nodejs.org"
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     apt-get install -y nodejs
-    
+
     npm install npm@latest -g
     npm install -g httpserver archeyjs
     ./install-archeyjs.sh
@@ -60,5 +60,5 @@ else
 fi
 
 echo ""
-echo "All done!"
+echo "*** $0 Done ***"
 echo ""

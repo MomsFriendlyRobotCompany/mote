@@ -45,14 +45,17 @@ systemctl stop hostapd
 
 echo "<<< Setting up interfaces, moving current config file to *.orig >>>"
 
+#  I think this is breaking it -----------
+# there are 2 wlan0 entries
 # mv /etc/network/interfaces /etc/network/interfaces.orig
-cat <<EOF >>/etc/network/interfaces
-allow-hotplug ${WLAN}
-iface ${WLAN} inet static
-  address 10.10.10.1
-  netmask 255.255.255.0
-  network 10.10.10.0
-EOF
+# cat <<EOF >>/etc/network/interfaces
+# allow-hotplug ${WLAN}
+# iface ${WLAN} inet static
+#   address 10.10.10.1
+#   netmask 255.255.255.0
+#   network 10.10.10.0
+# EOF
+# -----------------
 
 echo "<<< Setting up DNSMASQ >>>"
 

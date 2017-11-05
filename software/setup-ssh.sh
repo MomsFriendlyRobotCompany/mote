@@ -20,3 +20,7 @@ fi
 
 ssh-keygen -lvf ${HOME}/.ssh/id_rsa.pub
 echo ""
+
+echo ""
+echo "*** $0 Done ***"
+echo ""

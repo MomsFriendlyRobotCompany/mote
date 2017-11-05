@@ -70,3 +70,7 @@ chown -R pi:pi /usr/lib/python3/dist-packages
 
 # pip-upgrade-all
 # pip3-upgrade-all
+
+echo ""
+echo "*** $0 Done ***"
+echo ""

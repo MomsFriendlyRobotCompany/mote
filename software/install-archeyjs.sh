@@ -79,4 +79,8 @@ EOF
 # update and start
 systemctl enable archeyjs
 service archeyjs start
-service archeyjs status
+# service archeyjs status
+
+echo ""
+echo "*** $0 Done ***"
+echo ""
