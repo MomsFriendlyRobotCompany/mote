@@ -91,7 +91,7 @@ echo -e "denyinterfaces ${WLAN}" >> /etc/dhcpcd.conf
 echo "<<< Setting up HOSTAPD >>>"
 
 # remove the old init.d version
-rm -f /etc/init.d/hostapd
+mv /etc/init.d/hostapd /etc/init.d/hostapd.orig
 
 # the SSID for the access point will be the hostname
 HOSTNAME=`uname -n  | sed -e s/.local//`
@@ -126,6 +126,9 @@ ExecStart=/usr/sbin/hostapd -B /etc/hostapd/hostapd.conf -P /var/run/hostapd.pid
 WantedBy=multi-user.target
 EOF
 
-systemctl enable hostapd
-systemctl start dnsmasq
-systemctl start hostapd
+systemctl --no-pager enable hostapd
+sleep 1
+systemctl --no-pager start dnsmasq
+sleep 1
+systemctl --no-pager start hostapd
+sleep 1

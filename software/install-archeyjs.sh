@@ -77,8 +77,8 @@ EOF
 # fi
 
 # update and start
-systemctl enable archeyjs
-service archeyjs start
+systemctl --no-pager enable archeyjs
+systemctl --no-pager start archeyjs
 # service archeyjs status
 
 echo ""

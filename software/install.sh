@@ -31,7 +31,8 @@ apt-get -y install cmake pkg-config build-essential git swig
 apt-get -y install i2c-tools
 
 # admin
-apt-get -y install nmap htop samba samba-common-bin arp-scan wget curl libpcap0.8-dev
+apt-get -y install nmap htop samba samba-common-bin arp-scan wget curl
+apt-get -y install wavemon libpcap0.8-dev
 
 # linux kernel
 apt-get -y install raspi-config rpi-update

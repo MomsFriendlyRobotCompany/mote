@@ -65,29 +65,12 @@ cat <<EOF >/etc/samba/smb.conf
 EOF
 
 smbpasswd -a pi
-service smbd restart
-service nmbd restart
+systemctl --no-pager restart smbd
+systemctl --no-pager restart nmbd
 
 echo ""
 echo "*** samba is ready ***"
 echo ""
-
-# # samba setup
-# if [ ! -f "/etc/samba/smb.bak" ]; then
-# 	mv /etc/samba/smb.conf /etc/samba/smb.bak
-# 	cp static/smb.conf /etc/samba
-# 	smbpasswd -a pi
-# 	service smbd restart
-# 	service nmbd restart
-#
-# 	echo ""
-# 	echo "*** samba is ready ***"
-# 	echo ""
-# else
-# 	echo ""
-# 	echo "*** samba appears to already be set up ***"
-# 	echo ""
-# fi
 
 SCRIPT=$0
 
