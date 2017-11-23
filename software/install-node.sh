@@ -16,7 +16,7 @@ echo ""
 
 # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 #
-# curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 # sudo apt-get install -y nodejs
 
 # handle node.js, Nodejs.org only supports ARMv7 with the latest (RPi3)
@@ -42,7 +42,7 @@ if [[ -z "${NODEJS}" ]] ; then
   ARM="$(uname -m)"
   if [[ "$ARM" =~ "7" ]] ; then
     echo " > Detected ARMv7, downloading from nodejs.org"
-    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     apt-get install -y nodejs
 
     npm install npm@latest -g
