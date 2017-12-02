@@ -19,7 +19,8 @@ echo "deb https://dev2day.de/pms/ jessie main" | sudo tee /etc/apt/sources.list.
 echo " > install plex media server "
 
 apt-get update
-apt-get -y install -t jessie plexmediaserver
+# apt-get -y install -t jessie plexmediaserver
+apt-get -y install plexmediaserver
 
 echo " Done! "
 echo " Make sure to edit /etc/default/plexmediaserver"
