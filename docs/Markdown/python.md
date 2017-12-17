@@ -4,11 +4,11 @@ Python 2 will already be installed. You will need:
 
     sudo apt install python3
 
-Unfortunatley, ``apt`` will change 
+Unfortunatley, ``apt`` will change
 
 ## Pip
 
-The package manager of choice is ``pip`` for python 2.7 and ``pip3`` for python 3.x. 
+The package manager of choice is ``pip`` for python 2.7 and ``pip3`` for python 3.x.
 Get ``pip`` for both versions with:
 
     cd  # change to home directory
@@ -27,22 +27,13 @@ Then update some key libraries with:
 
 **Note:** had to change the shebang in `pip` from python3 to python
 
-Remember, python2 and python3 maintain their own seperate package repos, so 
+Remember, python2 and python3 maintain their own separate package repos, so
 you if you are going to program in both languages, then you need to add the
 same packages to both repos.
 
 ## Other Packages
 
-Insall other packages with `pip install -U <pkgs>`:
-
-- [hostinfo](https://github.com/walchko/hostinfo): follow install directions
-- pygecko
-- opencvutils
-- requests
-- flask
-- pyserial
-- simplejson
-- jupyter
+Insall other packages with `pip install -U <pkgs>`.
 
 ---
 

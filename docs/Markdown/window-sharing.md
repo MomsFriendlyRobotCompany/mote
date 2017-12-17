@@ -1,6 +1,6 @@
 # Sharing Windoze Internet with Zero
 
-This utilizes a lot of the information frojm circuitbasics.com.
+This utilizes a lot of the information from circuitbasics.com.
 
 ## Install the RNDIS Drivers
 

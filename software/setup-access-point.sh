@@ -23,6 +23,7 @@ echo ""
 echo "+-------------------------+"
 echo "| Setting up Access Point |"
 echo "+-------------------------+"
+echo " using {$WLAN}"
 echo " WARNING: only run once!"
 echo ""
 
