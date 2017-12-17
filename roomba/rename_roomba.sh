@@ -36,8 +36,9 @@ raspi-config nonint do_hostname ${HOSTNAME}
 
 # set SSID on wifi ----------------------------------
 # note: SSID will be set too hostname
+OLD_NAME=`uname -n`
 if [[ -f "/etc/hostapd/hostapd.conf" ]]; then
-  sed -i -e "s/gold/${HOSTNAME}/g" /etc/hostapd/hostapd.conf
+  sed -i -e "s/${OLD_NAME}/${HOSTNAME}/g" /etc/hostapd/hostapd.conf
 else
   echo "*** ERROR: access point NOT setup ***"
   echo "*** /etc/hostapd/hostapd.conf does NOT exit ***"
