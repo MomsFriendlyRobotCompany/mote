@@ -36,9 +36,6 @@ cd ../software
 # configure -----------------------------------------
 ./setup-raspi-config.sh ${HOSTNAME}
 
-# create temp folder
-mkdir -p /home/pi/tmp
-
 # commandline setup
 ./setup-dotfiles.sh
 
