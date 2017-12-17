@@ -8,6 +8,20 @@ pip-upgrade-all() {
     pip list --outdated | cut -d' ' -f1 | xargs pip install --upgrade
 }
 
+setup-ssh(){
+  USR=$1
+  HOME="/home/${USR}"
+
+  if [ ! -f "${HOME}/.ssh/id_rsa" ]; then
+  	su ${USR} - ssh-keygen -q -N "" -f ${HOME}/.ssh/id_rsa -t rsa
+  else
+  	echo ""
+  	echo "ssh already setup"
+  fi
+
+  su ${USR} - ssh-keygen -lvf ${HOME}/.ssh/id_rsa.pub
+}
+
 set -e
 
 # check if we are root
@@ -31,3 +45,6 @@ smbpasswd -a tday
 # usermod -a -G group1,group2,group3 exampleusername
 usermod -a -G staff mday
 usermod -a -G staff tday
+
+setup-ssh mday
+setup-ssh tday

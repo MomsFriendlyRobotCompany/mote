@@ -42,8 +42,9 @@ cd ../software
 # message of the day
 ./setup-motd.sh
 
+# NO: the hostname is still something else, it won't work yet for SSID
 # setup access point with default wlan0
-./setup-access-point.sh
+#./setup-access-point.sh
 
 # double check everything is updated
 pip install -U pip setuptools wheel
@@ -53,7 +54,7 @@ pip-upgrade-all
 # pip3-upgrade-all
 
 # install roomba specific stuff
-PYLIBS="opencvutils build_utils numpy nose pycreate2 \
+PYLIBS="opencvutils future build_utils numpy nose pycreate2 \
 future sparklines simplejson nxp_imu ins_nav pyurg ar_markers \
 pyserial pyhexdump the-collector"
 
