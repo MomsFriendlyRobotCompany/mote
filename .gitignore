@@ -12,6 +12,7 @@ sdist/
 .ipynb_checkpoints
 
 get-pip.py
+get-pip.py.*
 archeyjs.service
 .DS_Store
 ._.*
