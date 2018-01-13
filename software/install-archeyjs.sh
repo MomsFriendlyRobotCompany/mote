@@ -49,7 +49,7 @@ Group=pi
 Environment=NODE_ENV=production
 
 [Install]
-WantedBy=multi-user.target"
+WantedBy=multi-user.target
 EOF
 
 # update and start
