@@ -46,9 +46,10 @@ systemctl stop hostapd
 
 echo "<<< Setting up interfaces, moving current config file to *.orig >>>"
 
+# OMFG this doesn't work!!!
 # if /etc/network/interfaces has anything in it, then dhcpcd.config
 # doesn't run. Besides, interfaces is the OLD way, but starting with
-# Jessie, dhcpcd.conf is the new way going forward
+# Jessie, dhcpcd.conf is the new way going forward -- doesn't work
 mv /etc/dhcpcd.conf /etc/dhcpcd.conf.orig
 cat <<EOF >/etc/dhcpcd.conf
 # Inform the DHCP server of our hostname for DDNS.
@@ -80,47 +81,33 @@ require dhcp_server_identifier
 slaac private
 
 # before
-#denyinterfaces wlan0
+denyinterfaces wlan0
 
 # kevin
-interface wlan0
-  static ip_address=10.10.10.1/24
+#interface wlan0
+#  static ip_address=10.10.10.1/24
 EOF
 
-# these were the old way
-# -----------------
-#  I think this is breaking it
-# there are 2 wlan0 entries
-# mv /etc/network/interfaces /etc/network/interfaces.orig
-# cat <<EOF >>/etc/network/interfaces
-# allow-hotplug ${WLAN}
-# iface ${WLAN} inet static
-#   address 10.10.10.1
-#   netmask 255.255.255.0
-#   network 10.10.10.0
-# EOF
-# -----------------
+mv /etc/network/interfaces /etc/network/interfaces.orig
+cat <<EOF >/etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
 
-# mv /etc/network/interfaces /etc/network/interfaces.orig
-# cat <<EOF >/etc/network/interfaces
-# # interfaces(5) file used by ifup(8) and ifdown(8)
-#
-# # Please note that this file is written to be used with dhcpcd
-# # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
-#
-# # Include files from /etc/network/interfaces.d:
-# source-directory /etc/network/interfaces.d
-# allow-hotplug ${WLAN}
-# iface ${WLAN} inet static
-#   address 10.10.10.1
-#   netmask 255.255.255.0
-#   network 10.10.10.0
-#
-# # for some reason, we loose eth0 for wired, so add it back in
-# auto eth0
-# allow-hotplug eth0
-# iface eth0 inet dhcp
-# EOF
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+allow-hotplug ${WLAN}
+iface ${WLAN} inet static
+  address 10.10.10.1
+  netmask 255.255.255.0
+  network 10.10.10.0
+
+# for some reason, we loose eth0 for wired, so add it back in
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+EOF
 
 echo "<<< Setting up DNSMASQ >>>"
 
