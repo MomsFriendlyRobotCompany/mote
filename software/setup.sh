@@ -16,7 +16,7 @@ if [[ $# -ne 3 ]] ; then
 fi
 
 # configure -----------------------------------------
-./setup-raspi-config.sh
+./setup-raspi-config.sh $1
 
 # create temp and git folder
 mkdir -p ~/tmp
