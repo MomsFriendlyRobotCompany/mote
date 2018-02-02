@@ -43,7 +43,7 @@ HASH="${myarray[1]}"
 
 cat <<EOF >>/etc/wpa_supplicant/wpa_supplicant.conf
 network={
-    ssid=\"${SSID}\"
+    ssid="${SSID}"
     key_mgmt=WPA-PSK
     proto=WPA2
     psk=${HASH}
