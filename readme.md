@@ -1,4 +1,4 @@
-![](docs/Markdown/pics/Thor_Tesseract.jpg)
+![](pics/mote.jpg)
 
 # mote
 
