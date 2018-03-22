@@ -22,9 +22,13 @@ Now go into the software directory and install/setup everything:
 
 ## Optional auto-updates
 
+![](pics/update.png)
+
 This will create a service that runs weekly to update: `apt-get`, `pip`, `pip3`,
 `npm`. If you want, you could also add `rpi-update` to the script and update
-the kernel weekly too (not sure that is a great idea though).
+the kernel weekly too (not sure that is a great idea though). After an update has
+occurred, a text file is created with the time/date of the update (see image
+above).
 
 	sudo ./setup-auto-upgrade.sh
 
