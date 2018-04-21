@@ -1,3 +1,34 @@
+# Setup
+
+After you burn a new copy of Raspbian Lite to an SD card, do:
+
+- `touch /boot/ssh`
+- create a `/boot/wpa_supplicant.conf` file so the RPi will automaticaly join a wifi network when it boots
+
+Here is the format for 2 networks, with priorities set for which one to join if both are found:
+
+```bash
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+
+network={
+    ssid="SSID-1"
+    psk="password-1"
+    key_mgmt=WPA-PSK
+    proto=WPA2
+    priority=1
+}
+
+network={
+    ssid="SSID-2"
+    psk="password-2"
+    key_mgmt=WPA-PSK
+    proto=WPA2
+    priority=2
+}
+```
+
+Note, after boot, this file is moved from `/boot` to `/etc/` where it belongs.
+
 # Software Setup
 
 These scripts are to help setup a new raspbian system. Once you `ssh` in, update the system:
