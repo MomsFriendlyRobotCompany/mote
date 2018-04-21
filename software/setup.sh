@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ] ; then
   exit 1
 fi
 
-if [[ $# -ne 2 ]] ; then
+if [[ $# -ne 1 ]] ; then
   echo "Please supply a hostname"
   echo $USEAGE
   exit 1
