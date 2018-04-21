@@ -47,7 +47,7 @@ Get a copy of this software one of two ways:
 Now go into the software directory and install/setup everything:
 
     sudo ./install.sh
-    sudo ./setup.sh <hostname> <wifi-ssid> <wifi-password>
+    sudo ./setup.sh <hostname>
 
 # Optional Setup
 
