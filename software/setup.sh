@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-USEAGE="setup.sh <HOSTNAME> <WIFI-SSID> <WIFI-PASSWORD>"
+USEAGE="setup.sh <HOSTNAME>"
 
 # check if we are root
 if [ "$EUID" -ne 0 ] ; then
@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ] ; then
   exit 1
 fi
 
-if [[ $# -ne 3 ]] ; then
+if [[ $# -ne 2 ]] ; then
   echo "Please supply a hostname"
   echo $USEAGE
   exit 1
@@ -27,8 +27,8 @@ mkdir -p ~/tmp
 # message of the day
 ./setup-motd.sh
 
-# setup wifi
-./setup-wifi.sh $2 $3
+# setup wifi - this is done elsewhere now
+#./setup-wifi.sh $2 $3
 
 # just in case root changed a permission in ~
 chown -R pi:pi /home/pi
