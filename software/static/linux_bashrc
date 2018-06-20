@@ -64,3 +64,6 @@ pip2-upgrade-all() {
 pip3-upgrade-all() {
     pip3 list --outdated | cut -d' ' -f1 | awk 'NR > 2' | xargs pip3 install --upgrade --user
 }
+
+# fix pip --user install issue with ~/.local/bin not in PATH
+export PATH=PATH:~/.local/bin
