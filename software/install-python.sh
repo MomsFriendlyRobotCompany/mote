@@ -46,7 +46,7 @@ PWD=`pwd`
 apt-get -y install build-essential cmake pkg-config swig
 apt-get -y install libmpdec2
 apt-get -y install python-dev
-apt-get -y install python3 python3-dev
+#apt-get -y install python3 python3-dev
 
 # get rid of any pip package crap
 apt-get -y remove --purge python-pip python-pip-whl python3-pip
@@ -60,13 +60,13 @@ apt-get -y install libatlas-base-dev gfortran
 setup_pip pip python
 # pip install -U -r ${PWD}/static/requirements.txt
 
-setup_pip pip3 python3
+#setup_pip pip3 python3
 # pip3 install -U -r ${PWD}/static/requirements.txt
 
 # fix permissions
 chown -R pi:pi /usr/local
 chown -R pi:pi /usr/lib/python2.7/dist-packages
-chown -R pi:pi /usr/lib/python3/dist-packages
+#chown -R pi:pi /usr/lib/python3/dist-packages
 
 # pip-upgrade-all
 # pip3-upgrade-all
