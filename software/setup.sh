@@ -27,9 +27,6 @@ mkdir -p ~/tmp
 # message of the day
 ./setup-motd.sh
 
-# setup wifi - this is done elsewhere now
-#./setup-wifi.sh $2 $3
-
 # just in case root changed a permission in ~
 chown -R pi:pi /home/pi
 chown -R pi:pi /usr/local

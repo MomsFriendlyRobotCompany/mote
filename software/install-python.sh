@@ -22,22 +22,23 @@ setup_pip(){
   echo "============================="
   echo ""
   # run as pi?: sudo su - pi -c "commands"
-  if [[ ! -f "/usr/local/bin/${PIP}" ]]; then
-    wget https://bootstrap.pypa.io/get-pip.py && ${PYTHON} get-pip.py
-  else
-    echo "${PIP} already installed"
-  fi
+  # if [[ ! -f "/usr/local/bin/${PIP}" ]]; then
+  #   wget https://bootstrap.pypa.io/get-pip.py && ${PYTHON} get-pip.py
+  # else
+  #   echo "${PIP} already installed"
+  # fi
+  wget https://bootstrap.pypa.io/get-pip.py && ${PYTHON} get-pip.py
 
   ${PIP} install -U pip wheel setuptools
 }
 
-pip-upgrade-all() {
-    pip list --outdated | cut -d' ' -f1 | xargs pip install --upgrade
-}
-
-pip3-upgrade-all() {
-    pip3 list --outdated | cut -d' ' -f1 | xargs pip3 install --upgrade
-}
+# pip-upgrade-all() {
+#     pip list --outdated | cut -d' ' -f1 | xargs pip install --upgrade
+# }
+#
+# pip3-upgrade-all() {
+#     pip3 list --outdated | cut -d' ' -f1 | xargs pip3 install --upgrade
+# }
 
 # save the path of this file
 PWD=`pwd`
@@ -70,6 +71,10 @@ chown -R pi:pi /usr/lib/python2.7/dist-packages
 
 # pip-upgrade-all
 # pip3-upgrade-all
+
+if [ -f "get-pip.py" ]; then
+    rm "get-pip.py"
+fi
 
 echo ""
 echo "*** $0 Done ***"

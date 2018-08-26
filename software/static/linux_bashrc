@@ -66,4 +66,4 @@ pip3-upgrade-all() {
 }
 
 # fix pip --user install issue with ~/.local/bin not in PATH
-# export PATH=~/.local/bin:$PATH
+export PATH=/home/pi/.local/bin:$PATH
