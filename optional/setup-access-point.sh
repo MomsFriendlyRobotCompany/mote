@@ -14,7 +14,7 @@ WLAN=""
 
 # need wireless adaptor
 if [[ $# -ne 1 ]] ; then
-  WLAN="wlan0"
+  WLAN="wlan1"
 else
   WLAN=$1
 fi
@@ -23,7 +23,7 @@ echo ""
 echo "+-------------------------+"
 echo "| Setting up Access Point |"
 echo "+-------------------------+"
-echo " using {$WLAN}"
+echo " using ${WLAN}"
 echo " WARNING: only run once!"
 echo ""
 
