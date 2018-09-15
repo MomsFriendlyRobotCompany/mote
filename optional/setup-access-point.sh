@@ -10,14 +10,15 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-WLAN=""
+# this is the access point
+WLAN="wlan1"
 
-# need wireless adaptor
-if [[ $# -ne 1 ]] ; then
-  WLAN="wlan1"
-else
-  WLAN=$1
-fi
+# # need wireless adaptor
+# if [[ $# -ne 1 ]] ; then
+#   WLAN="wlan1"
+# else
+#   WLAN=$1
+# fi
 
 echo ""
 echo "+-------------------------+"
@@ -80,34 +81,43 @@ require dhcp_server_identifier
 # Generate Stable Private IPv6 Addresses instead of hardware based ones
 slaac private
 
-# before
-denyinterfaces wlan0
-
 # kevin
-#interface wlan0
-#  static ip_address=10.10.10.1/24
+###################################
+# main wifi
+# this seems to have trouble
+interface wlan0
+  dhcp
+  ipv4
+
+# access point
+interface wlan1
+  static ip_address=10.10.10.1/24
+  static routers=10.10.10.1
+  nohook wpa_supplicant
+  
 EOF
 
-mv /etc/network/interfaces /etc/network/interfaces.orig
-cat <<EOF >/etc/network/interfaces
-# interfaces(5) file used by ifup(8) and ifdown(8)
+# don't need this anymore
+# mv /etc/network/interfaces /etc/network/interfaces.orig
+# cat <<EOF >/etc/network/interfaces
+# # interfaces(5) file used by ifup(8) and ifdown(8)
 
-# Please note that this file is written to be used with dhcpcd
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+# # Please note that this file is written to be used with dhcpcd
+# # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
 
-# Include files from /etc/network/interfaces.d:
-source-directory /etc/network/interfaces.d
-allow-hotplug ${WLAN}
-iface ${WLAN} inet static
-  address 10.10.10.1
-  netmask 255.255.255.0
-  network 10.10.10.0
+# # Include files from /etc/network/interfaces.d:
+# source-directory /etc/network/interfaces.d
+# allow-hotplug ${WLAN}
+# iface ${WLAN} inet static
+#   address 10.10.10.1
+#   netmask 255.255.255.0
+#   network 10.10.10.0
 
-# for some reason, we loose eth0 for wired, so add it back in
-auto eth0
-allow-hotplug eth0
-iface eth0 inet dhcp
-EOF
+# # for some reason, we loose eth0 for wired, so add it back in
+# auto eth0
+# allow-hotplug eth0
+# iface eth0 inet dhcp
+# EOF
 
 echo "<<< Setting up DNSMASQ >>>"
 
@@ -119,9 +129,6 @@ cat <<EOF >/etc/dnsmasq.conf
 interface=${WLAN}      # Use the usb wifi dongle
 dhcp-range=10.10.10.5,10.10.10.100,255.255.255.0,24h
 EOF
-
-# changing dhcp, don't assign something to ${WLAN} ... leave out wlan0
-echo -e "denyinterfaces ${WLAN}" >> /etc/dhcpcd.conf
 
 echo "<<< Setting up HOSTAPD >>>"
 
