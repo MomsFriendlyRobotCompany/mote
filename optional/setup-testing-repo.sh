@@ -16,24 +16,24 @@ echo ""
 TEST="buster"
 STABLE="stretch"
 
-cat<<'EOF' > /etc/apt/sources.list.d/${TEST}.list
+cat > /etc/apt/sources.list.d/${TEST}.list <<EOF
 deb http://raspbian.raspberrypi.org/raspbian/ ${TEST} main contrib non-free rpi
 # deb-src http://raspbian.raspberrypi.org/raspbian/ ${TEST} main contrib non-free rpi
 EOF
 
-cat<<'EOF' > /etc/apt/preferences.d/${TEST}.pref
+cat > /etc/apt/preferences.d/${TEST}.pref <<EOF
 Package: *
 Pin: release a=${TEST}
 Pin-Priority: 100
 EOF
 
-cat<<'EOF' > /etc/apt/preferences.d/${STABLE}.pref
+cat > /etc/apt/preferences.d/${STABLE}.pref <<EOF
 Package: *
 Pin: release a=${STABLE}
 Pin-Priority: 700
 EOF
 
-cat<<'EOF' > /etc/apt/preferences.d/stable.pref
+cat > /etc/apt/preferences.d/stable.pref <<EOF
 Package: *
 Pin: release a=stable
 Pin-Priority: 900
