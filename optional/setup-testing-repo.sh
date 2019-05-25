@@ -40,4 +40,4 @@ Pin-Priority: 900
 EOF
 
 apt update
-apt install -y python3 python3-venv python3-dev cmake buildessential -t testing 
+apt install -y python3 python3-venv python3-dev cmake build-essential -t testing 
