@@ -14,7 +14,7 @@ echo "============================="
 echo ""
 
 echo "*** update python ***"
-runuser -l pi -c 'pip install -U Adafruit-SSD1306 pillow netifaces psutil'
+runuser -l pi -c 'source /home/pi/.venv/bin/activate;pip install -U Adafruit-SSD1306 pillow netifaces psutil'
 
 echo "*** setup script ***"
 
