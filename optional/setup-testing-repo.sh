@@ -16,7 +16,7 @@ echo ""
 TEST="buster"
 STABLE="stretch"
 
-cat<<'EOF' > /etc/apt/source.list.d/${TEST}.list
+cat<<'EOF' > /etc/apt/sources.list.d/${TEST}.list
 deb http://raspbian.raspberrypi.org/raspbian/ ${TEST} main contrib non-free rpi
 # deb-src http://raspbian.raspberrypi.org/raspbian/ ${TEST} main contrib non-free rpi
 EOF
