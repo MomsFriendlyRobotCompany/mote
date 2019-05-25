@@ -14,7 +14,7 @@ echo "============================="
 echo ""
 
 echo "*** update python ***"
-pip install -U Adafruit-SSD1306 pillow netifaces psutil
+runuser -l pi -c 'pip install -U Adafruit-SSD1306 pillow netifaces psutil'
 
 echo "*** setup script ***"
 
@@ -41,7 +41,7 @@ echo "*** setup service ***"
 
 EXE=pwd
 
-cat <<EOF > ${SERVICE}
+cat > ${SERVICE} <<EOF
 [Service]
 ExecStart=${EXE}/${SCRIPT}
 Restart=always
