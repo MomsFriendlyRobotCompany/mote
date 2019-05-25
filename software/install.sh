@@ -61,7 +61,7 @@ apt-get -y install libxml2-dev libxslt-dev python-dev
 ./install-archeyjs.sh
 
 # python 2/3
-./install-python.sh
+#./install-python.sh
 
 # update kernel
 rpi-update
