@@ -67,3 +67,8 @@ pip3-upgrade-all() {
 
 # fix pip --user install issue with ~/.local/bin not in PATH
 export PATH=/home/pi/.local/bin:$PATH
+
+if [[ -d "/home/pi/.venv" ]]; then
+  source /home/pi/.venv/bin/activate
+  echo " ** to exit" `python --version` "venv type \"deactivate\" **"
+fi
