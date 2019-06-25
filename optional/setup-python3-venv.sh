@@ -8,6 +8,8 @@ if [ "$EUID" -eq 0 ]
   exit 1
 fi
 
+sudo apt-get install python3-venv python3-dev -y
+
 python3 -m venv /home/pi/.venv
 
 source /home/pi/.venv/bin/activate
