@@ -42,7 +42,7 @@ if [[ -z "${NODEJS}" ]] ; then
   ARM="$(uname -m)"
   if [[ "$ARM" =~ "7" ]] ; then
     echo " > Detected ARMv7, downloading from nodejs.org"
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
     apt-get install -y nodejs
 
     npm install npm@latest -g
