@@ -16,8 +16,11 @@ echo "|  Setting Up OLED Status   |"
 echo "============================="
 echo ""
 
+deactivate  # shutdown virtual env
+apt install -y python3-pip
+
 echo "*** update python ***"
-runuser -l pi -c 'source /home/pi/.venv/bin/activate;pip install -U Adafruit-SSD1306 pillow netifaces psutil'
+pip3 install -U Adafruit-SSD1306 pillow netifaces psutil RPi.GPIO'
 
 echo "*** setup script ***"
 
