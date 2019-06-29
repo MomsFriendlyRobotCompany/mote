@@ -16,7 +16,7 @@ echo "|  Setting Up OLED Status   |"
 echo "============================="
 echo ""
 
-deactivate  # shutdown virtual env
+# deactivate  # shutdown virtual env
 apt install -y python3-pip
 
 echo "*** update python ***"
