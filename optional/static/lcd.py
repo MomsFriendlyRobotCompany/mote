@@ -1,15 +1,15 @@
-#!/usr/bin/env python
-from __future__ import printfunction division
+#!/usr/bin/env python3
+#from __future__ import printfunction division
 import netifaces as nf
 import psutil as ps
 import socket
 import time
 
 # https://github.com/sindresorhus/cli-spinners/blob/HEAD/spinners.json
-# spin = ['|','/','-','\\','+']
+spin = ['|','/','--','\\','+']
 # spin = ["◴","◷","◶","◵"]
 # spin = ["◐","◓","◑","◒"]
-spin = ["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]
+# spin = ["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]
 wrap = len(spin)
 i = 0
 try:
