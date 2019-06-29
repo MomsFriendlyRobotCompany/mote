@@ -7,8 +7,8 @@ if [ "$EUID" -ne 0 ]
 	exit 1
 fi
 
-print("Pillow/PIL fail to build ... exiting")
-exit 1
+# print("Pillow/PIL fail to build ... exiting")
+# exit 1
 
 echo ""
 echo "============================="
