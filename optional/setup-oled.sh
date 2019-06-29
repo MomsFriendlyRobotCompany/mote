@@ -31,7 +31,7 @@ SERVICE="/etc/systemd/system/oled.service"
 # fix permissions on static/lcd.py
 chmod 755 ${SCRIPT}
 
-if [[ -f "${SERVICE} ]]; then
+if [[ -f "${SERVICE}" ]]; then
 	echo "*** removing ${SERVICE} ***"
 	rm -f ${SERVICE}
 fi
