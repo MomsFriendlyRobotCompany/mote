@@ -25,23 +25,11 @@ pip3 install -U Adafruit-SSD1306 pillow netifaces psutil RPi.GPIO'
 echo "*** setup script ***"
 
 # setup the service
-# REREAD=""
 SCRIPT="static/lcd.py"
-# TIMER="/etc/systemd/system/autoupgrade.timer"
 SERVICE="/etc/systemd/system/oled.service"
 
-
-# if the file exists, remove it ... going to dynamically create it
-# if [[ -f "${TIMER}" ]]; then
-#   REREAD="true"
-# fi
-#
-# cat <<'EOF' >${SCRIPT}
-#
-# EOF
-
 # fix permissions
-chmod 755 ${SCRIPT}
+# chmod 755 ${SCRIPT}
 
 echo "*** setup service ***"
 
