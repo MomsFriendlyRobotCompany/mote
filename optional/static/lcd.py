@@ -78,7 +78,7 @@ try:
         str = "CPU: {:3.0f}% Mem: {:3.0f}%".format(cpu,mem)
         draw.text((x,top+8), str, font=font, fill=255)
 
-        for i, ip, addr in enumerate(addrs):
+        for i, (ip, addr) in enumerate(addrs):
             str = "{}: {}".format(ip, addr)
             draw.text((x,top+8+(i+1)*8), str, font=font, fill=255)
 
