@@ -20,7 +20,7 @@ echo ""
 apt install -y python3-pip
 
 echo "*** update python ***"
-pip3 install -U Adafruit-SSD1306 pillow netifaces psutil RPi.GPIO'
+pip3 install -U Adafruit-SSD1306 pillow netifaces psutil RPi.GPIO
 
 echo "*** setup script ***"
 
