@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-#from __future__ import printfunction division
+# This is run using the system python, so just use python3
+# make sure to install:
+# pip install -U Adafruit-SSD1306 pillow netifaces psutil
+# from __future__ import printfunction division
 import netifaces as nf
 import psutil as ps
 import socket
@@ -69,9 +72,9 @@ try:
             'UP' if ap else 'DOWN',
             spin[i%wrap]
         )
-        print(str)
+        # print(str)
         i += 1
-        draw.text((x,top), str, font=font, fill=255)
+        draw.text((x,top), str, font=font, fill=127)
 
         cpu = ps.cpu_percent()
         mem = ps.virtual_memory().percent
