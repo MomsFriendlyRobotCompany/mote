@@ -14,7 +14,7 @@ NAME=$1
 git config --global user.name ${NAME}
 git config --global user.email ${NAME}@users.noreply.github.com
 git config --global push.default simple
-git config --global core.ignorecase false
+#git config --global core.ignorecase false
 
 echo ""
 echo "*** $0 Done ***"
