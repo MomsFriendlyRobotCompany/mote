@@ -84,6 +84,13 @@ APT_PROXY=http://172.17.0.1:3142
 - [samba and dialog boxes issue](https://askubuntu.com/a/104912)
 - [another samba dialog box issue](https://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/)
 
+# Change Log
+
+| Date       | Rev   | Comment |
+|------------|-------|---------|
+| 2020-03-15 | 0.5.0 | moved to pi-gen 2020-02-13-raspbian-buster |
+| 2017-04-04 | 0.1.0 | scripts working |
+
 # Licenses
 
 ## Software: MIT License
