@@ -35,7 +35,7 @@ Command line:
 
 
 
-## Install
+## Build
 
 1. Clone [pi-gen](https://github.com/RPi-Distro/pi-gen): `git clone --depth=1 https://github.com/RPi-Distro/pi-gen.git`
 1. Do: `cp -R kevin pi-gen/`
@@ -44,6 +44,7 @@ Command line:
 1. `cd pi-gen && PRESERVE_CONTAINER=1 ./build-docker.sh`
 	- `PRESERVE_CONTAINER=1` keeps the container around so you can look at it, but you can leave it out too
 	- If the build fails, you can fix the error and then run: `CONTINUE=1 PRESERVE_CONTAINER=1 ./build-docker.sh`
+1. When complete, the zipped image should be in the folder: `deploy`
 
 # Licenses
 
