@@ -2,13 +2,18 @@
 
 # mote
 
-Setup Raspberry Pi's
+Setup Raspberry Pi's using RPi-Distro [pi-gen](https://github.com/RPi-Distro/pi-gen)
+and docker images.
 
-- Samba
-- Wifi
-- Commandline
-- Reconfigure the default RPi
-- etc
+- locale is set for en_us.utf-8 and us keyboard
+- default pi password is changed
+- Setup `samba`
+- Wifi setup for *ssid* and *passwd*
+- Commandline is `zsh`
+- `Python3` virtualenv (venv) setup
+- `Node` and `archeyjs`
+- `ssh` with default ed25519 keys
+- login motd will show useful info (see below)
 
 Command line:
 
@@ -70,6 +75,11 @@ APT_PROXY=http://172.17.0.1:3142
 	- `PRESERVE_CONTAINER=1` keeps the container around so you can look at it, but you can leave it out too
 	- If the build fails, you can fix the error and then run: `CONTINUE=1 ./build-docker.sh`
 1. When complete, the zipped image should be in the folder: `deploy`
+
+# References
+
+- [samba and dialog boxes issue](https://askubuntu.com/a/104912)
+- [another samba dialog box issue](https://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/)
 
 # Licenses
 
