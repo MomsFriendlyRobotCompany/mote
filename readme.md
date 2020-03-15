@@ -37,7 +37,9 @@ Command line:
 
 ## Install
 
-Follow the instructions in `software` for setting things up.
+1. Clone [pi-gen](https://github.com/RPi-Distro/pi-gen): `git clone --depth=1 https://github.com/RPi-Distro/pi-gen.git`
+1. Move `kevin` into `pi-gen`
+1. Do: `mv pi-gen/stage2/EXPORT_* pi-gen/kevin`
 
 # Licenses
 
