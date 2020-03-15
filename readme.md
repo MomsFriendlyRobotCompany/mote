@@ -33,17 +33,42 @@ Command line:
 	IP Addresses.......: 192.168.2.18
 
 
+## Setup
 
+- Install: `sudo apt install libarchive-tools coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools libcap2-bin grep rsync xz-utils file git curl bc`
+
+## `config`
+
+```
+IMG_NAME="mote"
+TARGET_HOSTNAME="mote"
+FIRST_USER_PASS="<passwd>"
+DEPLOY_ZIP=1
+LOCALE_DEFAULT="en_US.UTF-8"
+KEYBOARD_KEYMAP="us"
+KEYBOARD_LAYOUT="English (US)"
+ENABLE_SSH=1
+STAGE_LIST="stage0 stage1 stage2 kevin"
+WPA_ESSID=<ssid>
+WPA_PASSWORD=<passwd>
+WPA_COUNTRY=us
+APT_PROXY=http://172.17.0.1:3142
+```
 
 ## Build
 
 1. Clone [pi-gen](https://github.com/RPi-Distro/pi-gen): `git clone --depth=1 https://github.com/RPi-Distro/pi-gen.git`
-1. Do: `cp -R kevin pi-gen/`
-1. Do: `cp config pi-gen`
-1. Do: `mv pi-gen/stage2/EXPORT_* pi-gen/kevin`
-1. `cd pi-gen && PRESERVE_CONTAINER=1 ./build-docker.sh`
+1. `cp -R kevin pi-gen/`
+1. `cp config pi-gen`
+	- Set correct `<ssid>` and `<passwd>` for your network
+	- Set correct `<passwd>` for default user
+1. `cd pi-gen`
+1. `rm -fr stage3 stage4 stage5 export-noobs`
+1. `rm stage2/EXPORT_NOOB`
+1. `mv stage2/EXPORT_IMAGE kevin/`
+1. `./build-docker.sh`
 	- `PRESERVE_CONTAINER=1` keeps the container around so you can look at it, but you can leave it out too
-	- If the build fails, you can fix the error and then run: `CONTINUE=1 PRESERVE_CONTAINER=1 ./build-docker.sh`
+	- If the build fails, you can fix the error and then run: `CONTINUE=1 ./build-docker.sh`
 1. When complete, the zipped image should be in the folder: `deploy`
 
 # Licenses
