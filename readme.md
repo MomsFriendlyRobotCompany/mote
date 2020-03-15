@@ -38,8 +38,12 @@ Command line:
 ## Install
 
 1. Clone [pi-gen](https://github.com/RPi-Distro/pi-gen): `git clone --depth=1 https://github.com/RPi-Distro/pi-gen.git`
-1. Move `kevin` into `pi-gen`
+1. Do: `cp -R kevin pi-gen/`
+1. Do: `cp config pi-gen`
 1. Do: `mv pi-gen/stage2/EXPORT_* pi-gen/kevin`
+1. `cd pi-gen && PRESERVE_CONTAINER=1 ./build-docker.sh`
+	- `PRESERVE_CONTAINER=1` keeps the container around so you can look at it, but you can leave it out too
+	- If the build fails, you can fix the error and then run: `CONTINUE=1 PRESERVE_CONTAINER=1 ./build-docker.sh`
 
 # Licenses
 
