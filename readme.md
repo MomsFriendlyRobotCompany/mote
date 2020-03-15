@@ -44,6 +44,9 @@ Command line:
 
 ## `config`
 
+The below `config` file assumes you use the apt-cache docker container and 
+start it with: `docker-compose up -d`.
+
 ```
 IMG_NAME="mote"
 TARGET_HOSTNAME="mote"
