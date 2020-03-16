@@ -17,26 +17,27 @@ and docker images.
 
 Command line:
 
-	kevin@Logan lib $ ssh pi@raven.local
-	Last login: Mon May  8 01:36:22 2017 from fe80::f41f:25ff::e764%usb0
+```
+kevin@Logan lib $ ssh pi@raven.local
+Last login: Mon May  8 01:36:22 2017 from fe80::f41f:25ff::e764%usb0
 
-	 _ __ __ ___   _____ _ __  
-	| '__/ _` \ \ / / _ \ '_ \
-	| | | (_| |\ V /  __/ | | |
-	|_|  \__,_| \_/ \___|_| |_|
+ _ __ __ ___   _____ _ __  
+| '__/ _` \ \ / / _ \ '_ \
+| | | (_| |\ V /  __/ | | |
+|_|  \__,_| \_/ \___|_| |_|
 
 
-	Wednesday, 10 May 2017,  2:17:19 am UTC
-	Linux 4.9.26+ armv6l GNU/Linux
+Wednesday, 10 May 2017,  2:17:19 am UTC
+Linux 4.9.26+ armv6l GNU/Linux
 
-	Uptime.............: 0 days, 00h00m42s
-	Memory.............: 253 MB (Free) / 370 MB (Total)
-	Storage............: 1.9GB (Free) / 15GB (Total)
-	Load Averages......: 0.85, 0.24, 0.08 (1, 5, 15 min)
-	CPU Temperature....: 78 F
-	Running Processes..: 93
-	IP Addresses.......: 192.168.2.18
-
+Uptime.............: 0 days, 00h00m42s
+Memory.............: 253 MB (Free) / 370 MB (Total)
+Storage............: 1.9GB (Free) / 15GB (Total)
+Load Averages......: 0.85, 0.24, 0.08 (1, 5, 15 min)
+CPU Temperature....: 78 F
+Running Processes..: 93
+IP Addresses.......: 192.168.2.18
+```
 
 ## Setup
 
@@ -64,6 +65,8 @@ APT_PROXY=http://172.17.0.1:3142
 ```
 
 ## Build
+
+Basically you just run `./setup.sh` and it does the following:
 
 1. Clone [pi-gen](https://github.com/RPi-Distro/pi-gen): `git clone --depth=1 https://github.com/RPi-Distro/pi-gen.git`
 1. `cp -R kevin pi-gen/`
