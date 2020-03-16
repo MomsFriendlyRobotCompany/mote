@@ -1,0 +1,13 @@
+cmake pkg-config build-essential
+
+nmap htop arp-scan
+
+rpi-update
+
+wget curl
+
+i2c-tools
+
+libxml2-dev libxslt-dev
+
+ca-certificates
