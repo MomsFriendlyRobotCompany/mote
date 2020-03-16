@@ -44,7 +44,7 @@ Command line:
 
 ## `config`
 
-The below `config` file assumes you use the apt-cache docker container and 
+The below `config` file assumes you use the apt-cache docker container and
 start it with: `docker-compose up -d`.
 
 ```
@@ -91,9 +91,7 @@ APT_PROXY=http://172.17.0.1:3142
 | 2020-03-15 | 0.5.0 | moved to pi-gen 2020-02-13-raspbian-buster |
 | 2017-04-04 | 0.1.0 | scripts working |
 
-# Licenses
-
-## Software: MIT License
+# MIT License
 
 Copyright (c) 2017 Kevin J. Walchko
 
@@ -113,12 +111,3 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Documentation: Community Commons
-
-<p align="center">
-	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-		<img alt="Creative Commons License"  src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
-	</a>
-	<br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-</p>

@@ -1,23 +1,12 @@
-__pycache__/
-build/
-develop-eggs/
-dist/
-eggs/
-.eggs/
-sdist/
-*.egg-info/
-*.egg
-
 # IPython Notebook
 .ipynb_checkpoints
 
-get-pip.py
-get-pip.py.*
-archeyjs.service
 .DS_Store
 ._.*
 ._*
-*.swp
-autoupgrade.sh
-*.conf
-*.service
+*.zip
+
+config
+deploy
+pi-gen
+old
