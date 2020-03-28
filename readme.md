@@ -57,7 +57,7 @@ LOCALE_DEFAULT="en_US.UTF-8"
 KEYBOARD_KEYMAP="us"
 KEYBOARD_LAYOUT="English (US)"
 ENABLE_SSH=1
-STAGE_LIST="stage0 stage1 stage2 kevin"
+STAGE_LIST="stage0 stage1 stage2 kevin robot"
 WPA_ESSID=<ssid>
 WPA_PASSWORD=<passwd>
 WPA_COUNTRY=us
@@ -66,7 +66,7 @@ APT_PROXY=http://172.17.0.1:3142
 
 ## Build
 
-Basically you just run `./setup.sh` and it does the following:
+Basically you just run `./setup.sh user_pwd ssid ssid_pwd` and it does the following:
 
 1. Clone [pi-gen](https://github.com/RPi-Distro/pi-gen): `git clone --depth=1 https://github.com/RPi-Distro/pi-gen.git`
 1. `cp -R kevin pi-gen/`
