@@ -81,6 +81,14 @@ Basically you just run `./setup.sh user_pwd ssid ssid_pwd` and it does the follo
 	- `PRESERVE_CONTAINER=1` keeps the container around so you can look at it, but you can leave it out too
 	- If the build fails, you can fix the error and then run: `CONTINUE=1 ./build-docker.sh`
 1. When complete, the zipped image should be in the folder: `deploy`
+    - **Unfortunately** the image sizes exceed what github allows, so they are not in the repo
+
+## Continuing Work
+
+If you make changes and want to rebuild you can do:
+
+- Start over completely from scratch: `./build-docker.sh`
+- Continue only update what you have changed: `CONTINUE=1 ./build-docker.sh`
 
 # References
 

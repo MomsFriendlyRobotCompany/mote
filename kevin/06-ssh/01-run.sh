@@ -8,5 +8,4 @@ if [[ ! -d "/home/${FIRST_USER_NAME}/.ssh" ]]; then
     # systemctl enable ssh # handled by config
 fi
 
-sudo rfkill unblock all
 EOF

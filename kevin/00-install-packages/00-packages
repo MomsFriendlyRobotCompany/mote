@@ -3,6 +3,7 @@ cmake pkg-config build-essential
 nmap htop arp-scan
 
 rpi-update
+raspi-config
 
 wget curl
 
