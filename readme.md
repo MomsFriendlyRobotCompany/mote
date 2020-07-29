@@ -11,7 +11,6 @@ and docker images.
 - Wifi setup for *ssid* and *passwd*
 - Commandline is `zsh`
 - `Python3` virtualenv (venv) setup
-- `Node` and `archeyjs`
 - `ssh` with default ed25519 keys
 - login motd will show useful info (see below)
 
@@ -89,6 +88,16 @@ If you make changes and want to rebuild you can do:
 
 - Start over completely from scratch: `./build-docker.sh`
 - Continue only update what you have changed: `CONTINUE=1 ./build-docker.sh`
+
+# Things Learned
+
+- To get access to the image root file system, use `${ROOTFS_DIR}/<some_file>`
+- Can't use `mv`, need to use `install -m 644 <from> <to`
+- **00-packages**: is `apt-get install -y $PACKAGES`
+- **00-packages-nr**: is `apt-get install --no-install-recommends -y $PACKAGES`
+- No matter how you do it, you can't pre-install a current version of node using
+the [script](https://github.com/nodesource/distributions/blob/master/README.md#deb)
+from the website
 
 # References
 

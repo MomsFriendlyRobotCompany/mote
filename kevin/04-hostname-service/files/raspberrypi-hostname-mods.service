@@ -1,0 +1,14 @@
+[Unit]
+Description=Change hostname if /boot/hostname exists
+ConditionPathExists=/boot/hostname
+Before=network-pre.target
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/mv /boot/hostname /etc/hostname
+ExecStartPost=/bin/chmod 600 /etc/hostname
+
+[Install]
+WantedBy=multi-user.target

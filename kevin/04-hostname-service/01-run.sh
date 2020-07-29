@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-install -m 644 files/archeyjs.service "${ROOTFS_DIR}/etc/systemd/system/"
+install -m 644 files/raspberrypi-hostname-mods.service "${ROOTFS_DIR}/etc/systemd/system/"
 
 # on_chroot << EOF
 # # purge any old versions

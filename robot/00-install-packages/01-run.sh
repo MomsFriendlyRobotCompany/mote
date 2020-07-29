@@ -10,7 +10,7 @@ PYPI_FILES="pyserial \
     squaternion"
 
 on_chroot << EOF
-    ls -al /home/${FIRST_USER_NAME}
-    SUDO_USER="${FIRST_USER_NAME}" . /home/${FIRST_USER_NAME}/venv/bin/activate && pip install -U ${PYPI_FILES}
+    # ls -al /home/${FIRST_USER_NAME}
+    # SUDO_USER="${FIRST_USER_NAME}" . /home/${FIRST_USER_NAME}/venv/bin/activate && pip install -U ${PYPI_FILES}
 
 EOF

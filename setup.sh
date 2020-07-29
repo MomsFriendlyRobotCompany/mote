@@ -16,6 +16,7 @@ if [[ $# -ne 3 ]]; then
     echo "Usage: ./setup.sh user_passwd wifi_ssid wifi_passwd"
     exit 1
 else
+
 USER_PASSWD=$1
 WIFI_SSID=$2
 WIFI_PASSWD=$3
@@ -32,7 +33,7 @@ ENABLE_SSH=1
 STAGE_LIST="stage0 stage1 stage2 kevin robot"
 WPA_ESSID="${WIFI_SSID}"
 WPA_PASSWORD="${WIFI_PASSWD}"
-WPA_COUNTRY=us
+WPA_COUNTRY="US"
 EOF
 
 fi

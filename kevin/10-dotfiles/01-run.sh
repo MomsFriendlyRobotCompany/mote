@@ -4,16 +4,24 @@
 
 on_chroot << EOF
 # get dotfiles -----------------------------
+if [[ ! -d "/home/${FIRST_USER_NAME}/github/dotfiles" ]]; then
+    cd /home/${FIRST_USER_NAME}/github
+    SUDO_USER="${FIRST_USER_NAME}" git clone --depth 1 https://github.com/walchko/dotfiles.git
+    SUDO_USER="${FIRST_USER_NAME}" ln -s /home/${FIRST_USER_NAME}/github/dotfiles/bashrc home/${FIRST_USER_NAME}/.bashrc
+    cd /home/${FIRST_USER_NAME}
+fi
 
 # ZSH ---------
-if [[ -d "/home/${FIRST_USER_NAME}/.zshrc" ]]
-    SUDO_USER="${FIRST_USER_NAME}" mv .zshrc .zshrc.orig
-    SUDO_USER="${FIRST_USER_NAME}" ln -s /home/${FIRST_USER_NAME}/github/dotfiles/zshrc home/${FIRST_USER_NAME}/.bashrc
+if [[ -f "/home/${FIRST_USER_NAME}/.zshrc" ]]; then
+    mv /home/${FIRST_USER_NAME}/.zshrc /home/${FIRST_USER_NAME}/.zshrc.orig
+    ln -s /home/${FIRST_USER_NAME}/github/dotfiles/zshrc home/${FIRST_USER_NAME}/.bashrc
 fi
 
 # BASH --------
-SUDO_USER="${FIRST_USER_NAME}" mv .bashrc .bashrc.orig
-SUDO_USER="${FIRST_USER_NAME}" ln -s /home/${FIRST_USER_NAME}/github/dotfiles/bashrc home/${FIRST_USER_NAME}/.zshrc
+if [[ -f "/home/${FIRST_USER_NAME}/.bashrc" ]]; then
+    mv /home/${FIRST_USER_NAME}/.bashrc /home/${FIRST_USER_NAME}/.bashrc.orig
+    ln -s /home/${FIRST_USER_NAME}/github/dotfiles/bashrc /home/${FIRST_USER_NAME}/.zshrc
+fi
 
 # MOTD -------
 rm /etc/motd
