@@ -60,6 +60,9 @@ sudo apt install -y cmake pkg-config build-essential clang \
     figlet \
     python3 python3-pip python3-dev
 
+echo ">> Remove Stupid Stuff ================================================="
+sudo apt purge -y unattended-upgrades
+
 echo ">> Setting hostname to ================================================="
 sudo hostnamectl set-hostname ${HOST}
 hostnamectl
