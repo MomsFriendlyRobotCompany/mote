@@ -16,7 +16,7 @@ embedded system. Some of the changes:
     - Set time zone
     - Install Python3
     - Install `samba` and export home share
-    - Set I2C to default to 400 Hz and install `i2c-tools`
+    - Set I2C to default to 400 KHz and install `i2c-tools`
     - Install NodeJS and NPM
         - Setup `archeyjs`
     - Setup `git` and `git-lfs`
