@@ -152,7 +152,11 @@ sudo chown -R ${USER}:${USER} /home/${USER}
 sudo apt autoremove -y
 
 # ==========================================================================
-
+# check if we are root AGAIN!!
+if [[ "${EUID}" -eq 0 || "${USER}" != "ubuntu" ]]; then
+    echo "Please run as user ubuntu"
+    exit 1
+fi
 echo ""
 echo ">>> Executed as ${USER} <<<"
 echo ""
@@ -175,7 +179,13 @@ fi
 
 cd
 
+
+echo ">> Setup python virtualenv ============================================="
+python3 -m venv ${HOME}/venv
+. ${HOME}/venv/bin/activate
+
 echo ">> Install python packages ============================================="
+pip3 install -U pip setuptools wheel
 pip3 install -U twine numpy psutil pytest simplejson colorama pyserial picamera[array]
 
 echo ">> Install poetry ======================================================"
