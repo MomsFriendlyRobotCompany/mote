@@ -1,0 +1,29 @@
+---
+- name: APT install
+  hosts: all
+  become: yes
+
+  vars:
+    apt_packages:
+      - cmake
+      - pkg-config
+      - build-essential
+      - clang
+      - nmap
+      - htop
+      - wget
+      - curl
+      - raspi-config
+      - rpi-update
+      - figlet
+      - libxml2-dev
+      - libxslt-dev
+
+
+  tasks:
+    - name: Install packages
+      apt:
+        upgrade: "{{ apt_packages }}"
+        update_cache: yes
+        autoclean: yes
+        autoremove: yes

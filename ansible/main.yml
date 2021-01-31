@@ -1,0 +1,11 @@
+# ansible-playbook -i ini main.yml
+---
+- name: Setting up a raspberry pi
+  hosts: ultron.local
+  become: no
+
+  vars:
+    HOSTNAME: rasp
+
+- import_playbook: tasks/update_system.yml
+# - import_playbook: tasks/python.yml

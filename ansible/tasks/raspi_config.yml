@@ -1,0 +1,19 @@
+---
+- name: Run raspiconfig
+  hosts: all
+  become: yes
+
+  vars:
+    ON: 0
+    OFF: 1
+
+  tasks:
+    - name: Run raspi-config
+      command: "{{ item }}"
+      with_items:
+        - "raspi-config nonint do_i2c {{ON}}"
+        - "raspi-config nonint do_spi {{ON}}"
+        - "raspi-config nonint do_wifi_country US"
+        - "raspi-config nonint do_camera {{ON}}"
+        - "raspi-config nonint do_hostname {{HOSTNAME}}"
+        # - "raspi-config nonint do_memory_split 128"

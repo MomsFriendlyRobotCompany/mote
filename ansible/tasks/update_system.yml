@@ -1,0 +1,16 @@
+---
+- name: "Update system"
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Update cache and system packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    - name: Clean up
+      apt:
+        autoclean: yes
+        autoremove: yes

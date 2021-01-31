@@ -1,0 +1,52 @@
+---
+- name: Install and setup git
+  hosts: all
+  become: no
+
+  vars:
+    apt_packages:
+      - git
+      - git-lfs
+
+  tasks:
+    - name: Install packages
+      apt:
+        upgrade: "{{ apt_packages }}"
+        update_cache: yes
+      become: yes
+
+    - name: git user
+      git_config:
+        name: "{{ item.name }}"
+        scope: global
+        value: "{{ item.value }}"
+      with_items:
+        - {name: user.name, value: walchko}
+        - {name: user.email, value: walchko@users.noreply.github.com}
+        - {name: push.default, value: simple}
+
+    # - name: git user
+    #   git_config:
+    #     name: user.name
+    #     scope: global
+    #     value: walchko
+    #
+    # - name: git email
+    #   git_config:
+    #     name: user.email
+    #     scope: global
+    #     value: walchko@users.noreply.github.com
+    #
+    # - name: git push
+    #   git_config:
+    #     name: push.default
+    #     scope: global
+    #     value: simple
+
+    # - name: Clone some of my repo's
+    #   git:
+    #     repo: "{{ item }}"
+    #     dest: "{{ ansible_env.HOME }}/github"
+    #   with_items:
+    #     - git@github.com:walchko/dotfiles.git
+    #   become: no

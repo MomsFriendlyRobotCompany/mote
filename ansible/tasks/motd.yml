@@ -1,0 +1,52 @@
+---
+- name: Setup dotfiles
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Clone some of my repo's
+      git:
+        repo: "{{ item }}"
+        dest: "{{ ansible_env.HOME }}/github"
+      with_items:
+        - git@github.com:walchko/dotfiles.git
+      become: no
+
+    ###########################################################
+    # MOTD
+    ###########################################################
+    - name: Remove current motd
+      file:
+        path: /etc/motd
+        state: absent
+
+    - name: Touch motd so it is an empty file
+      file:
+        path: /etc/motd
+        state: touch
+
+    - name: Create a symbolic link to motd
+      file:
+        src: "{{ ansible_env.HOME }}/github/dotfiles/motd"
+        dest: /etc/profile.d/motd.sh
+        owner: root
+        group: root
+        state: link
+
+    ###########################################################
+    # Bashrc
+    ###########################################################
+    - name: Remove current bashrc
+      copy:
+        src: "{{ ansible_env.HOME }}/.bashrc"
+        dest: "{{ ansible_env.HOME }}/.bashrc.old"
+        remote_src: yes
+
+    - name: Create a symbolic link to motd
+      file:
+        src: "{{ ansible_env.HOME }}/github/dotfiles/motd"
+        dest: "{{ ansible_env.HOME }}/.bashrc"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        state: link
