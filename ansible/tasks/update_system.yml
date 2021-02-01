@@ -9,8 +9,16 @@
       apt:
         upgrade: yes
         update_cache: yes
+      register: apt_status
+      until: apt_status is success
+      delay: 6
+      retries: 10
 
     - name: Clean up
       apt:
         autoclean: yes
         autoremove: yes
+      register: apt_status
+      until: apt_status is success
+      delay: 6
+      retries: 10

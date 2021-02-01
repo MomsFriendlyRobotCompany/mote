@@ -1,11 +1,18 @@
 # ansible-playbook -i ini main.yml
 ---
 - name: Setting up a raspberry pi
-  hosts: ultron.local
+  hosts: all
   become: no
 
-  vars:
-    HOSTNAME: rasp
+  # vars:
+  #   HOSTNAME: raspi
 
-- import_playbook: tasks/update_system.yml
-# - import_playbook: tasks/python.yml
+# - import_playbook: tasks/update_system.yml
+# - import_playbook: tasks/apt.yml
+# - import_playbook: tasks/git.yml
+# - import_playbook: tasks/dotfiles.yml
+# - import_playbook: tasks/user.yml
+- import_playbook: tasks/python.yml
+# - import_playbook: tasks/samba.yml
+# - import_playbook: tasks/raspi_config.yml
+# - import_playbook: tasks/reboot.yml

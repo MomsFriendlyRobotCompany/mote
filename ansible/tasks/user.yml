@@ -1,0 +1,26 @@
+---
+# WARNING: this doesn't work on macOS, it needs a
+- name: Update User
+  hosts: all
+  become: yes
+
+  vars:
+    newpassword: !vault |
+      $ANSIBLE_VAULT;1.1;AES256
+      35633434343137353261636431376466303065383037393035636233616261353934303435383363
+      3761383664353361303537663632613465353365646562610a393864636366636131646464343431
+      62353162316438613566373764656533336366306565623064383135326362396635323838663235
+      3036613536633233620a366434663734353833376337316266363832326630393261393763646439
+      3536
+
+  tasks:
+
+    # - debug: "var=newpassword"
+
+    - name: Change Password
+      user:
+        name: pi
+        # pip install passlib
+        # string: convert int or floats
+        # trim: remove '\n'
+        password: "{{ newpassword | string | trim | password_hash('sha512') }}"

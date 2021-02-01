@@ -9,21 +9,44 @@
       - pkg-config
       - build-essential
       - clang
+      - libatlas-base-dev
+      - gfortran
       - nmap
       - htop
       - wget
       - curl
-      - raspi-config
-      - rpi-update
       - figlet
       - libxml2-dev
       - libxslt-dev
 
 
   tasks:
-    - name: Install packages
+    - name: Install Debian packages
       apt:
-        upgrade: "{{ apt_packages }}"
+        name: "{{ apt_packages }}"
         update_cache: yes
+      register: apt_status
+      until: apt_status is success
+      delay: 6
+      retries: 10
+
+    # - debug: "msg=processor {{ ansible_architecture }}"
+
+    # - name: Install Raspberry Pi packages
+    #   apt:
+    #     name: "{{ apt_packages }}"
+    #     update_cache: no
+    #   with_items:
+    #     - raspi-config
+    #     - rpi-update
+    #   when: ansible_architecture == "armv7l"
+    #   register: apt_status
+    #   until: apt_status is success
+    #   delay: 6
+    #   retries: 10
+
+    - name: APT clean up packages
+      apt:
+        update_cache: no
         autoclean: yes
         autoremove: yes

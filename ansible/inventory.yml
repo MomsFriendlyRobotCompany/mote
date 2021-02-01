@@ -1,0 +1,13 @@
+---
+all:
+  hosts:
+    # dalek.local:
+    #   ansible_port: 2222
+    raspberrypi.local:
+    # raspi:
+
+  vars:
+    ansible_user: pi
+    # ansible_port: 2222
+    HOSTNAME: raspi
+    ansible_python_interpreter: /usr/bin/python3

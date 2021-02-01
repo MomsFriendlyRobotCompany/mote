@@ -1,5 +1,0 @@
-[pis]
-ultron.local
-
-[pis:vars]
-ansible_user=pi

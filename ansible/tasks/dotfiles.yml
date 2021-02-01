@@ -1,17 +1,12 @@
 ---
 - name: Setup dotfiles
   hosts: all
-  become: yes
+  become: no
+
+  vars:
+    HOME: /home/pi
 
   tasks:
-
-    - name: Clone some of my repo's
-      git:
-        repo: "{{ item }}"
-        dest: "{{ ansible_env.HOME }}/github"
-      with_items:
-        - git@github.com:walchko/dotfiles.git
-      become: no
 
     ###########################################################
     # MOTD
@@ -20,33 +15,44 @@
       file:
         path: /etc/motd
         state: absent
+      become: yes
 
     - name: Touch motd so it is an empty file
       file:
         path: /etc/motd
         state: touch
+      become: yes
 
     - name: Create a symbolic link to motd
       file:
-        src: "{{ ansible_env.HOME }}/github/dotfiles/motd"
+        src: "{{ HOME }}/github/dotfiles/motd"
         dest: /etc/profile.d/motd.sh
         owner: root
         group: root
         state: link
+      become: yes
 
     ###########################################################
     # Bashrc
     ###########################################################
-    - name: Remove current bashrc
+    - name: Backup current bashrc
       copy:
-        src: "{{ ansible_env.HOME }}/.bashrc"
-        dest: "{{ ansible_env.HOME }}/.bashrc.old"
+        src: "{{ HOME }}/.bashrc"
+        dest: "{{ HOME }}/.bashrc.old"
         remote_src: yes
+      become: no
 
-    - name: Create a symbolic link to motd
+    - name: Remove current bashrc
       file:
-        src: "{{ ansible_env.HOME }}/github/dotfiles/motd"
-        dest: "{{ ansible_env.HOME }}/.bashrc"
-        owner: "{{ ansible_user_id }}"
-        group: "{{ ansible_user_id }}"
+        path: "{{ HOME }}/.bashrc"
+        state: absent
+      become: no
+
+    - name: Create a symbolic link to bashrc
+      file:
+        src: "{{ HOME }}/github/dotfiles/bashrc"
+        dest: "{{ HOME }}/.bashrc"
+        owner: pi
+        group: pi
         state: link
+      become: no

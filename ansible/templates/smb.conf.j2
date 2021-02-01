@@ -11,7 +11,6 @@
    syslog = 0
    panic action = /usr/share/samba/panic-action %d
 
-
 ####### Authentication #######
 
    server role = standalone server
@@ -31,7 +30,7 @@
 
 #======================= Share Definitions =======================
 
-[{{ ansible_nodename }}_{{ ansible_user_id }}]
+[{{ HOSTNAME }}RPi]
    comment = Home Directories
    browseable = yes
    read only = no
