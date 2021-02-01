@@ -1,0 +1,24 @@
+---
+version: '3'
+
+services:
+  debian:
+    build: .
+    image: walchko/debian:0.1
+    container_name: debian
+    ports:
+      # - "53:53/tcp"
+      # - "53:53/udp"
+      # - "67:67/udp"  # dhcp
+      # - "80:80/tcp"
+      # - "443:443/tcp"
+      - "2222:22/tcp"
+    # devices:
+    #   - /dev/ttyACM0:/dev/ttyACM0
+    # volumes:
+    #   - ./config:/home/octoprint/.octoprint
+
+    environment:
+      TZ: 'America/Chicago'
+      VIRTUAL_HOST: debian.local
+      ServerIP: 10.0.1.7
