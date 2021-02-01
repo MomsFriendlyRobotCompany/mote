@@ -8,12 +8,12 @@ Raspberry Pi. It is not perfect, but close enough.
 
 ## Using
 
-    - Build: `docker-compose build --compress --force-rm --no-cache --pull --parallel`
-    - Run: `docker-compose up`
-        - You can add the `-d` switch to detach it from the terminal and run it in the background
-    - Stop: 
-        - if attached to terminal, use `ctrl-C`
-        - if detached: `docker-compose down`
+- Build: `docker-compose build --compress --force-rm --no-cache --pull --parallel`
+- Run: `docker-compose up`
+    - You can add the `-d` switch to detach it from the terminal and run it in the background
+- Stop: 
+    - if attached to terminal, use `ctrl-C`
+    - if detached: `docker-compose down`
 
 ## SSH into Container
 
