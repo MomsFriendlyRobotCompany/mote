@@ -12,7 +12,7 @@
 
   tasks:
 
-    - debug: "var=HOSTNAME"
+    # - debug: "var=HOSTNAME"
 
     - name: Install Raspberry Pi packages
       apt:

@@ -7,12 +7,12 @@
   # vars:
   #   HOSTNAME: raspi
 
-# - import_playbook: tasks/update_system.yml
-# - import_playbook: tasks/apt.yml
-# - import_playbook: tasks/git.yml
-# - import_playbook: tasks/dotfiles.yml
-# - import_playbook: tasks/user.yml
+- import_playbook: tasks/update_system.yml
+- import_playbook: tasks/apt.yml
+- import_playbook: tasks/git.yml
+- import_playbook: tasks/dotfiles.yml
+- import_playbook: tasks/user.yml
 - import_playbook: tasks/python.yml
-# - import_playbook: tasks/samba.yml
-# - import_playbook: tasks/raspi_config.yml
-# - import_playbook: tasks/reboot.yml
+- import_playbook: tasks/samba.yml
+- import_playbook: tasks/raspi_config.yml
+- import_playbook: tasks/reboot.yml
