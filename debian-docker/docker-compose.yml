@@ -2,10 +2,10 @@
 version: '3'
 
 services:
-  debian:
+  raspberrypi:
     build: .
     image: walchko/debian:0.1
-    container_name: debian
+    container_name: raspberrypi
     ports:
       # - "53:53/tcp"
       # - "53:53/udp"
