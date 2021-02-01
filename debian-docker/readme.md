@@ -1,3 +1,4 @@
+![](container.png)
 
 # Docker for Testing
 
