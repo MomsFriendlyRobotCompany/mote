@@ -1,11 +1,8 @@
-# ansible-playbook -i ini main.yml
 ---
+# ansible-playbook -i ini main.yml
 - name: Setting up a raspberry pi
   hosts: all
   become: no
-
-  # vars:
-  #   HOSTNAME: raspi
 
 - import_playbook: tasks/update_system.yml
 - import_playbook: tasks/apt.yml

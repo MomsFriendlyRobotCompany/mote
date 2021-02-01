@@ -1,0 +1,24 @@
+---
+locale: en_US.UTF-8
+
+extends: default
+
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+
+rules:
+  truthy:
+    allowed-values:
+      - 'true'
+      - 'false'
+      - 'yes'
+      - 'no'
+  line-length:
+    max: 180
+    level: warning
+
+ignore: |
+  .github
+  octoprint/config
