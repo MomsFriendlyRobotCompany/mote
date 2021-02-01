@@ -4,7 +4,7 @@ version: '3'
 services:
   raspberrypi:
     build: .
-    image: walchko/debian:0.1
+    image: walchko/raspberrypi:0.1
     container_name: raspberrypi
     ports:
       # - "443:443/tcp"
