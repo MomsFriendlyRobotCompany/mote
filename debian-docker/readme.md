@@ -17,5 +17,5 @@ Raspberry Pi. It is not perfect, but close enough.
 
 ## SSH into Container
 
-- Assuming dalek is hosting, reach from any where: `ssh -p 2222 pi@dalek.local``
+- Assuming dalek is hosting, reach from any where: `ssh -p 2222 pi@dalek.local`
 - Run on the hosting system: `ssh -p 2222 pi@0.0.0.0`
