@@ -1,0 +1,36 @@
+---
+- name: Run raspiconfig
+  hosts: all
+  become: yes
+
+  vars:
+    turn_on: 0
+    turn_off: 1
+    apt_packages:
+      - raspi-config
+      - rpi-update
+
+  tasks:
+
+    # - debug: "var=HOSTNAME"
+
+    - name: Install Raspberry Pi packages
+      apt:
+        name: "{{ apt_packages }}"
+        update_cache: no
+      when: ansible_architecture == "armv7l"
+      register: apt_status
+      until: apt_status is success
+      delay: 6
+      retries: 10
+
+    - name: Run raspi-config
+      command: "{{ item }}"
+      with_items:
+        - "raspi-config nonint do_i2c {{ turn_on }}"
+        - "raspi-config nonint do_spi {{ turn_on }}"
+        - "raspi-config nonint do_wifi_country US"
+        - "raspi-config nonint do_camera {{ turn_on }}"
+        # - "raspi-config nonint do_hostname {{HOSTNAME}}"
+        # - "raspi-config nonint do_memory_split 128"
+      when: ansible_architecture == "armv7l"

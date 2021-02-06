@@ -1,0 +1,13 @@
+---
+# install pip packages in a virtualenv
+# root: no
+- name: Setup virtualenv and install python modules with pip
+  pip:
+    name: "{{ pip_packages }}"
+    virtualenv: "{{ venv }}"
+    virtualenv_command: /usr/bin/python3 -m venv
+  register: pip_status
+  until: pip_status is success
+  delay: 3
+  retries: 1
+  become: false

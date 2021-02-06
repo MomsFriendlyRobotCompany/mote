@@ -1,0 +1,15 @@
+---
+- name: Reboot
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: APT clean up packages
+      apt:
+        update_cache: no
+        autoclean: yes
+        autoremove: yes
+
+    - name: Rebooting
+      reboot:

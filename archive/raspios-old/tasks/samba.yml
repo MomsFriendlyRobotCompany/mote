@@ -1,0 +1,32 @@
+---
+# Samba requires ports 137, 138, 139, 445 to be open to function properly
+- name: Install and setup samba
+  hosts: all
+  become: yes
+
+  vars:
+    # debian
+    samba_daemon: smbd
+    apt_packages:
+      - samba
+      - samba-common
+      - samba-common-bin
+      - avahi-daemon
+
+  tasks:
+    - name: Install SAMBA packages
+      apt:
+        name: "{{ apt_packages }}"
+        update_cache: no
+
+    - name: Create smb.conf
+      template:
+        src: ../templates/smb.conf.j2
+        dest: /etc/samba/smb.conf
+        owner: root
+        group: root
+        mode: '0600'
+        backup: yes
+
+    - name: Ensure Samba is running and set to start on boot.
+      service: "name={{ samba_daemon }} state=started enabled=yes"

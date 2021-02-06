@@ -1,0 +1,58 @@
+---
+- name: Setup dotfiles
+  hosts: all
+  become: no
+
+  vars:
+    HOME: /home/pi
+
+  tasks:
+
+    ###########################################################
+    # MOTD
+    ###########################################################
+    - name: Remove current motd
+      file:
+        path: /etc/motd
+        state: absent
+      become: yes
+
+    - name: Touch motd so it is an empty file
+      file:
+        path: /etc/motd
+        state: touch
+      become: yes
+
+    - name: Create a symbolic link to motd
+      file:
+        src: "{{ HOME }}/github/dotfiles/motd"
+        dest: /etc/profile.d/motd.sh
+        owner: root
+        group: root
+        state: link
+      become: yes
+
+    ###########################################################
+    # Bashrc
+    ###########################################################
+    - name: Backup current bashrc
+      copy:
+        src: "{{ HOME }}/.bashrc"
+        dest: "{{ HOME }}/.bashrc.old"
+        remote_src: yes
+      become: no
+
+    - name: Remove current bashrc
+      file:
+        path: "{{ HOME }}/.bashrc"
+        state: absent
+      become: no
+
+    - name: Create a symbolic link to bashrc
+      file:
+        src: "{{ HOME }}/github/dotfiles/bashrc"
+        dest: "{{ HOME }}/.bashrc"
+        owner: pi
+        group: pi
+        state: link
+      become: no

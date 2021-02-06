@@ -1,0 +1,35 @@
+---
+# DRAFT
+- name: APT install
+  hosts: all
+  become: yes
+
+  vars:
+    version: lsb_release -cs
+    apt_packages:
+      - curl
+      - gnupg2
+      - lsb-release
+
+
+  tasks:
+    - name: Install needed pre-install ROS2 packages
+      apt:
+        name: "{{ apt_packages }}"
+        update_cache: no
+
+    - name: Get ROS2 repo keys
+      shell: curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
+
+    - name: Setup ROS2 apt repo
+      apt_repository:
+        repo: "{{ item }}"
+        state: present
+      with_items:
+        - "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu {{ version }} main"
+        # - "deb-src https://deb.nodesource.com/node_15.x buster main"
+
+    - name: Install ROSs packages
+      apt:
+        name: ros-foxy-desktop
+        update_cache: yes

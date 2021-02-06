@@ -1,0 +1,20 @@
+---
+# given a list of packages, this will install them
+# vars:
+# - apt_packages: list of packages
+# - update: update the cache before install true|false
+# root: yes
+# retries on failure
+- name: Install Debian packages
+  apt:
+    name: "{{ apt_packages }}"
+    update_cache: "{{ update | default(false) }}"
+  register: apt
+  # register: apt_status
+  # until: apt_status is success
+  # delay: 2
+  # retries: 1
+  become: true
+
+# - debug: "msg={{ apt_status.stdout.split('\n')[:-1] }}"
+- debug: "var={{ apt }}"
