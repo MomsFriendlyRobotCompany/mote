@@ -6,10 +6,6 @@
   apt:
     upgrade: yes
     update_cache: yes
-  # register: apt_status
-  # until: apt_status is success
-  # delay: 6
-  # retries: 10
   become: yes
 
 - name: Auto clean up and auto remove

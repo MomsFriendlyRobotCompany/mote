@@ -12,8 +12,19 @@ Get a dump of the gathered information about the system:
 ansible -i inventory.yml dalek.local -m setup
 ```
 
+# install
+
+```
+python3 -m venv ansi
+source ansi/bin/activate
+pip install -U pip setuptools wheel
+pip install ansible
+pip install passlib
+```
+
 ---
 
+```
 "ansible_user_dir": "/home/pi",
 "ansible_user_gid": 1000,
 "ansible_user_id": "pi",
@@ -111,7 +122,7 @@ sshd_config validate: sshd -T -f %s
 "ansible_processor_count": 4,
 "ansible_processor_nproc": 4,
 "ansible_processor_threads_per_core": 1,
-
+```
 
 ## Atom Editor
 
