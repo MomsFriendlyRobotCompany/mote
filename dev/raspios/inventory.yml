@@ -1,9 +1,0 @@
----
-all:
-  hosts:
-    dalek.local:
-      ansible_port: 2222
-    raspberrypi.local:
-    ultron.local:
-    pi-hole.local:
-    plex.local:

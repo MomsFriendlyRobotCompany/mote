@@ -16,16 +16,10 @@
       - pip
       - setuptools
       - wheel
-      - numpy
-      - opencv_python_headless
-      - twine
-      - psutil
-      - pytest
-      - simplejson
-      - colorama
-      - pyserial
+
 
 - include: poetry_install.yml
+  become: false
 
     # - name: Install python3 with apt
     #   apt:

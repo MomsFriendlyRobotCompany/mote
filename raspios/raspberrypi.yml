@@ -7,7 +7,7 @@
   vars:
     ansible_user: pi
     HOME: /home/pi
-    HOSTNAME: raspberrypi
+    HOSTNAME: plex
     venv: /home/pi/venv
     ansible_python_interpreter: /usr/bin/python3
     newpassword: !vault |
@@ -67,8 +67,6 @@
         - pkg-config
         - build-essential
         - clang
-        - libatlas-base-dev
-        - gfortran
         - nmap
         - htop
         - wget
@@ -83,4 +81,6 @@
     - include: tasks/python.yml
     - include: tasks/samba.yml
     - include: tasks/raspi_config.yml
+    - include: tasks/docker.yml
+    # - include: tasks/robotics.yml
     - include: tasks/reboot.yml

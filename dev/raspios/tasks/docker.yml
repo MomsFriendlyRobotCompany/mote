@@ -1,9 +1,0 @@
----
-# install docker
-# root: yes
-- name: Install docker
-  shell: |
-    curl -sSL https://get.docker.com | sudo -E sh
-    "sudo usermod -aG docker {{ ansible_user }}"
-  become: yes
-  when: ansible_architecture == "armv7l"
