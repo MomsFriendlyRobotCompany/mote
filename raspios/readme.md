@@ -4,22 +4,46 @@
 
 ```
 ansible-playbook -i inventory.yml main.yml --vault-password-file ~/Dropbox/save/rpi-pki/ansible/key.txt
-```
 
-Get a dump of the gathered information about the system:
-
-```
 ansible -i inventory.yml dalek.local -m setup
+
+# OR if you have a ansible.cfg file
+
+ansible-playbook main.yml
+
+ansible -m setup dalek.local
+ansible -m ping dalek.local
 ```
 
-# install
+## Install Ansible
 
 ```
 python3 -m venv ansi
 source ansi/bin/activate
-pip install -U pip setuptools wheel
-pip install ansible
-pip install passlib
+pip install -U pip setuptools wheel ansible passlib
+```
+
+## Finish Samba Setup
+
+Unfortunately this is an interactive commands and no way around it:
+
+```
+smbpassd -a pi
+```
+
+## Atom Editor
+
+Set tab size to 2 for yaml files, but 4 for python:
+
+```cson
+".python.source":
+  editor:
+    autoIndentOnPaste: true
+    showIndentGuide: true
+".yaml.source":
+  editor:
+    tabLength: 2
+    showIndentGuide: true
 ```
 
 ---
@@ -122,19 +146,4 @@ sshd_config validate: sshd -T -f %s
 "ansible_processor_count": 4,
 "ansible_processor_nproc": 4,
 "ansible_processor_threads_per_core": 1,
-```
-
-## Atom Editor
-
-Set tab size to 2 for yaml files, but 4 for python:
-
-```cson
-".python.source":
-  editor:
-    autoIndentOnPaste: true
-    showIndentGuide: true
-".yaml.source":
-  editor:
-    tabLength: 2
-    showIndentGuide: true
 ```
