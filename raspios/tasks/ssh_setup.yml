@@ -7,6 +7,7 @@
 # - private_key
 
 - debug: "var=public_key"
+- debug: "var=private_key"
 - debug: "var=ansible_python_interpreter"
 
 - name: Template public key
@@ -17,7 +18,7 @@
     group: pi
     mode: '0644'
   vars:
-    ssh_key: public_key
+    ssh_key: "{{ public_key }}"
 
 - name: Template for private key
   template:
@@ -27,7 +28,7 @@
     group: pi
     mode: '0600'
   vars:
-    ssh_key: private_key
+    ssh_key: "{{ private_key }}"
 
 - name: Template ssh conf
   template:

@@ -4,6 +4,7 @@
 # upgrade docker: sudo apt upgrade
 # remove docker: sudo apt-get purge docker-ce
 # deleting leftover images: sudo rm -rf /var/lib/docker
+# WARNING: chmod 777 /var/run/docker.sock
 
 - include: atomics/apt.yml
   vars:
@@ -14,17 +15,25 @@
   shell: "which docker"
   register: result
   ignore_errors: true
+  args:
+    warn: false
 
 - name: Install docker
   shell: |
     curl -sSL https://get.docker.com | sudo -E sh
     "sudo usermod -aG docker {{ ansible_user }}"
-  become: yes
-  when: # acts ans an AND when put in list; (cond) or (cond) is another way
+    sudo chmod 777 /var/run/docker.sock 
+  become: true
+  ignore_errors: true
+  args:
+    warn: false
+  # acts as an AND when put in list; (cond) or (cond) is another way
+  when:
     - ansible_architecture == "armv7l"
-    - result.rc == 0
+    - result.rc != 0
 
 - include: atomics/pip.yml
   vars:
     pip_packages:
       - docker-compose
+  become: false

@@ -2,6 +2,7 @@
 # ansible-playbook raspberrypi.yml
 - name: Setting up a raspberry pi
   hosts: raspberrypi.local
+  # hosts: plex.local
   become: no
 
   vars:
