@@ -1,4 +1,10 @@
+## Install Ansible
 
+```
+python3 -m venv ansi
+source ansi/bin/activate
+pip install -U pip setuptools wheel ansible passlib
+```
 
 ## Run
 
@@ -13,14 +19,6 @@ ansible-playbook main.yml
 
 ansible -m setup dalek.local
 ansible -m ping dalek.local
-```
-
-## Install Ansible
-
-```
-python3 -m venv ansi
-source ansi/bin/activate
-pip install -U pip setuptools wheel ansible passlib
 ```
 
 ## Finish Samba Setup
