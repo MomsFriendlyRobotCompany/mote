@@ -46,6 +46,8 @@ Set tab size to 2 for yaml files, but 4 for python:
 
 ---
 
+## Output of Setup
+
 ```
 "ansible_user_dir": "/home/pi",
 "ansible_user_gid": 1000,
