@@ -12,13 +12,15 @@ pip install -U pip setuptools wheel ansible passlib
 ansible-playbook -i inventory.yml main.yml --vault-password-file ~/Dropbox/save/rpi-pki/ansible/key.txt
 
 ansible -i inventory.yml dalek.local -m setup
+```
 
-# OR if you have a ansible.cfg file
+**OR** if you have a `ansible.cfg` file
 
-ansible-playbook main.yml
+```
+ansible-playbook main.yml    # run playbook
 
-ansible -m setup dalek.local
-ansible -m ping dalek.local
+ansible -m setup dalek.local # print system setup details
+ansible -m ping dalek.local  # ping system, to see if it is up
 ```
 
 ## Finish Samba Setup
@@ -26,7 +28,14 @@ ansible -m ping dalek.local
 Unfortunately this is an interactive commands and no way around it:
 
 ```
-smbpassd -a pi
+sudo smbpasswd -a pi
+```
+
+Also, restart the samba system for changes to take effect:
+
+```
+sudo service smbd restart
+sudo service nmbd restart
 ```
 
 ## Atom Editor
