@@ -53,6 +53,39 @@ Set tab size to 2 for yaml files, but 4 for python:
     showIndentGuide: true
 ```
 
+## Issues
+
+The following produce errors ... I think it is the `which` command:
+
+```yaml
+- name: check poetry installed
+  shell: "which poetry"
+  register: result
+  ignore_errors: true
+  args:
+    warn: false
+```
+
+```
+TASK [check poetry installed] **************************************************
+fatal: [ultron.local]: FAILED! => {"changed": true, "cmd": "which poetry", "delta": "0:00:00.014004", "end": "2021-10-31 08:36:53.230787", "msg": "non-zero return code", "rc": 1, "start": "2021-10-31 08:36:53.216783", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+...ignoring
+```
+
+```yaml
+- name: check docker installed
+  shell: "which docker"
+  register: result
+  ignore_errors: true
+  args:
+    warn: false
+```
+
+```
+TASK [check docker installed] **************************************************
+fatal: [ultron.local]: FAILED! => {"changed": true, "cmd": "which docker", "delta": "0:00:00.014027", "end": "2021-10-31 08:40:58.541234", "msg": "non-zero return code", "rc": 1, "start": "2021-10-31 08:40:58.527207", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+...ignoring
+```
 ---
 
 ## Output of Setup
