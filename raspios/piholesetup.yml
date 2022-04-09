@@ -1,15 +1,15 @@
 ---
 # ansible-playbook raspberrypi.yml
 - name: Setting up a raspberry pi
-  # hosts: raspberrypi.local
+  hosts: pihole.local
   # hosts: plex.local
-  hosts: ultron.local
+  # hosts: ultron.local
   become: no
 
   vars:
     ansible_user: pi
     HOME: /home/pi
-    HOSTNAME: plex
+    HOSTNAME: pihole
     venv: /home/pi/venv
     ansible_python_interpreter: /usr/bin/python3
     newpassword: !vault |
@@ -68,7 +68,7 @@
         - cmake
         - pkg-config
         - build-essential
-        - clang
+        # - clang
         - nmap
         - htop
         - wget
@@ -79,10 +79,10 @@
     - include: tasks/ssh_setup.yml
     - include: tasks/git.yml
     - include: tasks/dotfiles.yml
-    - include: tasks/user_setup.yml
+    # - include: tasks/user_setup.yml
     - include: tasks/python.yml
-    - include: tasks/samba.yml
-    - include: tasks/raspi_config.yml
+    # - include: tasks/samba.yml
+    # - include: tasks/raspi_config.yml
     - include: tasks/docker.yml
     # - include: tasks/robotics.yml
     - include: tasks/reboot.yml

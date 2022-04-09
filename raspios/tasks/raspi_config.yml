@@ -18,7 +18,7 @@
     - "raspi-config nonint do_camera {{ turn_on }}"
     - "raspi-config nonint do_hostname {{HOSTNAME}}"
     # - "raspi-config nonint do_memory_split 128"
-  when: ansible_architecture == "armv7l"
+  # when: ansible_architecture == "armv7l"
   become: yes
   vars:
     turn_on: 0

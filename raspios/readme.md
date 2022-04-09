@@ -9,6 +9,10 @@ pip install -U pip setuptools wheel ansible passlib
 ## Run
 
 ```
+ansible-playbook piholesetup.yml --vault-password-file ~/Dropbox/save/rpi-pki/ansible/key.txt
+```
+
+```
 ansible-playbook -i inventory.yml main.yml --vault-password-file ~/Dropbox/save/rpi-pki/ansible/key.txt
 
 ansible -i inventory.yml dalek.local -m setup

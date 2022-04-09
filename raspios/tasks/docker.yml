@@ -22,15 +22,15 @@
   shell: |
     curl -sSL https://get.docker.com | sudo -E sh
     "sudo usermod -aG docker {{ ansible_user }}"
-    sudo chmod 777 /var/run/docker.sock 
+    sudo chmod 777 /var/run/docker.sock
   become: true
   ignore_errors: true
   args:
     warn: false
   # acts as an AND when put in list; (cond) or (cond) is another way
-  when:
-    - ansible_architecture == "armv7l"
-    - result.rc != 0
+  # when:
+  #   - ansible_architecture == "armv7l"
+  #   - result.rc != 0
 
 - include: atomics/pip.yml
   vars:
