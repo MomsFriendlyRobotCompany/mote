@@ -5,7 +5,7 @@
   pip:
     name: "{{ pip_packages }}"
     virtualenv: "{{ venv }}"
-    virtualenv_command: /usr/bin/python3 -m venv
+    virtualenv_command: /usr/bin/python3 -m venvs/py
   register: pip_status
   until: pip_status is success
   delay: 3

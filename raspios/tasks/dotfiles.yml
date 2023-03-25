@@ -4,12 +4,11 @@
 # - HOME: user home
 # root: false-git clone, true-other
 
-- name: Check for java exists in /opt
+- name: Check for dotfile directory
   stat: path="{{ HOME }}/github/dotfiles"
   register: p
 
 - name: Clone dotfile repo
-  # block:
   git:
     repo: "git@github.com:walchko/dotfiles.git"
     dest: "{{ HOME }}/github/dotfiles"
@@ -64,7 +63,7 @@
   file:
     src: "{{ HOME }}/github/dotfiles/bashrc"
     dest: "{{ HOME }}/.bashrc"
-    owner: pi
-    group: pi
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     state: link
   become: no

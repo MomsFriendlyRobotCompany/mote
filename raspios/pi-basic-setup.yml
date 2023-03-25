@@ -1,16 +1,14 @@
 ---
 # ansible-playbook raspberrypi.yml
 - name: Setting up a raspberry pi
-  hosts: pihole.local
-  # hosts: plex.local
-  # hosts: ultron.local
-  become: no
+  hosts: bender.local
+  become: no # become root?
 
   vars:
-    ansible_user: pi
-    HOME: /home/pi
-    HOSTNAME: pihole
-    venv: /home/pi/venv
+    ansible_user: kevin
+    HOME: "/home/{{ ansible_user }}"
+    # HOSTNAME: bender
+    venv: "/home/{{ ansible_user }}/venvs"
     ansible_python_interpreter: /usr/bin/python3
     newpassword: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -61,14 +59,14 @@
 
   tasks:
 
-    - include: tasks/update_system.yml
-    - include: tasks/atomics/apt.yml
+    - include_tasks: tasks/update_system.yml
+    - include_tasks: tasks/atomics/apt.yml
       vars:
+        update: true
         apt_packages:
         - cmake
         - pkg-config
         - build-essential
-        # - clang
         - nmap
         - htop
         - wget
@@ -76,13 +74,14 @@
         - figlet
         - libxml2-dev
         - libxslt-dev
-    - include: tasks/ssh_setup.yml
-    - include: tasks/git.yml
-    - include: tasks/dotfiles.yml
-    # - include: tasks/user_setup.yml
-    - include: tasks/python.yml
-    # - include: tasks/samba.yml
-    # - include: tasks/raspi_config.yml
-    - include: tasks/docker.yml
-    # - include: tasks/robotics.yml
-    - include: tasks/reboot.yml
+    - include_tasks: tasks/ssh_setup.yml
+    - include_tasks: tasks/git.yml
+    - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/user_setup.yml
+    - include_tasks: tasks/python.yml
+    # # - include_tasks: tasks/samba.yml
+    - include_tasks: tasks/raspi_config.yml
+    - include_tasks: tasks/reboot.yml
+
+
+

@@ -1,7 +1,4 @@
 ---
-# Install python3 if not all ready, also setup venv and poetry
-
-
 - include: tasks/atomics/apt.yml
   vars:
     apt_packages:
@@ -21,22 +18,3 @@
       - simplejson
       - colorama
       - pyserial
-
-- include: atomics/pip.yml
-  vars:
-    pip_packages:
-      - picamera[numpy]
-  when: ansible_architecture == "armv7l"
-
-    # - name: Install python3 with apt
-    #   apt:
-    #     pkg: "{{ apt_packages }}"
-    #     update_cache: no
-    #   become: yes
-    #   register: apt_status
-    #   until: apt_status is success
-    #   delay: 6
-    #   retries: 1
-
-
-    # - debug: "var=ansible_python"

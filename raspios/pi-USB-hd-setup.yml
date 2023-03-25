@@ -1,0 +1,24 @@
+---
+# ansible-playbook raspberrypi.yml
+- name: Setting up a USB hard drive
+  hosts: bender.local
+  become: no # become root?
+
+  vars:
+    ansible_user: kevin
+    HOME: "/home/{{ ansible_user }}"
+    HD_UUID: f5a3c4cf-6761-4a3e-a0b8-6acaa06cb05a
+    # HOSTNAME: bender
+    # venv: "/home/{{ ansible_user }}/venvs"
+    # ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Mount up device by UUID
+      ansible.posix.mount:
+        path: /mnt/usbdrive
+        src: UUID="{{ HD_UUID }}"
+        fstype: ext4
+        opts: defaults,auto,nofail,user,rw
+        state: present
+      become: true
+

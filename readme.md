@@ -1,10 +1,39 @@
-![](https://i.redd.it/n0vaia0w2yl21.png)
+![](pics/iron-man-legion.png)
 
 # Mote
 
 Some scripts to help setup Raspberry Pi images
-for robotics
 
+## Ansible on Raspios
+
+- `pi-basic-setup.yml`: setup a basic raspberry pi configuration ... **always run this first**
+    - create user/password
+    - setup ssh keys
+    - setup python `venv` configuration called `py`
+    - install `dotfiles` from github
+- These all build on the basic setup playbook:
+    - `pi-docker-setup.yml`: sets up a generic raspberry pi with docker
+        - `get-docker.sh`: only downloads the script to `/tmp` ... you need to run it from there AND reboot
+        - USB hard drive, set the UUID
+        - installs docker yamls from github
+    - `pi-USB-hd-setup.yml`: sets up a USB hard drive on the pi, you need a the UUID of the drive
+
+```
+ansible-playbook <ansible.yml>
+```
+
+## Setup Ansible in `venv`
+
+```
+python3 -m venv venvs/ansible
+. ./venvs/ansible/bin/activate
+pip install -U pip setuptools wheel ansible passlib
+```
+
+## Issues
+
+- `docker.yml`: `get-docker.sh` must be run by hand ... double check `become: true` is set, might be a permissions problem
+- `samba.yml`: can't set password, must be interactive
 
 # MIT License
 

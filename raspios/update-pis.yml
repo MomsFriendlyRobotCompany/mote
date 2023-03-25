@@ -2,16 +2,17 @@
 # ansible-playbook update-pis.yml
 - name: Updating Raspberry Pi Systems
   hosts:
-    - ultron.local
+    # - ultron.local
     # - pi-hole.local
     # - plex.local
     # - dalek.local
+    - bender.local
   become: no
 
   vars:
-    ansible_user: pi
-    HOME: /home/pi
-    venv: /home/pi/venv
+    ansible_user: kevin
+    HOME: /home/kevin
+    venv: /home/kevin/venv
     ansible_python_interpreter: /usr/bin/python3
 
   tasks:

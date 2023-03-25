@@ -5,7 +5,6 @@
   vars:
     apt_packages:
       - git
-      - git-lfs
 
 - name: git user
   git_config:

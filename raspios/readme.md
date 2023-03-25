@@ -1,31 +1,4 @@
-## Install Ansible
-
-```
-python3 -m venv ansi
-source ansi/bin/activate
-pip install -U pip setuptools wheel ansible passlib
-```
-
-## Run
-
-```
-ansible-playbook piholesetup.yml --vault-password-file ~/Dropbox/save/rpi-pki/ansible/key.txt
-```
-
-```
-ansible-playbook -i inventory.yml main.yml --vault-password-file ~/Dropbox/save/rpi-pki/ansible/key.txt
-
-ansible -i inventory.yml dalek.local -m setup
-```
-
-**OR** if you have a `ansible.cfg` file
-
-```
-ansible-playbook main.yml    # run playbook
-
-ansible -m setup dalek.local # print system setup details
-ansible -m ping dalek.local  # ping system, to see if it is up
-```
+# Ansible on Raspios
 
 ## Finish Samba Setup
 
@@ -40,21 +13,6 @@ Also, restart the samba system for changes to take effect:
 ```
 sudo service smbd restart
 sudo service nmbd restart
-```
-
-## Atom Editor
-
-Set tab size to 2 for yaml files, but 4 for python:
-
-```cson
-".python.source":
-  editor:
-    autoIndentOnPaste: true
-    showIndentGuide: true
-".yaml.source":
-  editor:
-    tabLength: 2
-    showIndentGuide: true
 ```
 
 ## Issues

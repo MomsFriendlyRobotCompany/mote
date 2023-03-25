@@ -5,5 +5,6 @@ all:
     #   ansible_port: 2222
     # raspberrypi.local:
     # ultron.local:
-    pihole.local:
+    # pihole.local:
     # plex.local:
+    bender.local:

@@ -6,16 +6,16 @@
 # - public_key
 # - private_key
 
-- debug: "var=public_key"
-- debug: "var=private_key"
-- debug: "var=ansible_python_interpreter"
+# - debug: "var=public_key"
+# - debug: "var=private_key"
+# - debug: "var=ansible_python_interpreter"
 
 - name: Template public key
   template:
     src: ../templates/key.j2
     dest: "{{ HOME }}/.ssh/id_ed25519.pub"
-    owner: pi
-    group: pi
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: '0644'
   vars:
     ssh_key: "{{ public_key }}"
@@ -24,8 +24,8 @@
   template:
     src: ../templates/key.j2
     dest: "{{ HOME }}/.ssh/id_ed25519"
-    owner: pi
-    group: pi
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: '0600'
   vars:
     ssh_key: "{{ private_key }}"
@@ -34,6 +34,6 @@
   template:
     src: ../templates/ssh_config.j2
     dest: "{{ HOME }}/.ssh/config"
-    owner: pi
-    group: pi
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: '0644'
